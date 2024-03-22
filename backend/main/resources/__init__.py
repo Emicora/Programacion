@@ -1,0 +1,12 @@
+from .libro import Libro as LibroResource
+from .libro import Libros as LibrosResource
+from .usuario import Usuario as UsuarioResource
+from .usuario import Usuarios as UsuariosResource
+from .prestamo import Prestamo as PrestamoResource
+from .prestamo import Prestamos as PrestamosResource
+from .login import Login as LoginResource
+from .signin import Signin as SigninResource
+from .configuracion import Configuracion as ConfiguracionResource
+from .comentario import Comentario as ComentarioResource
+from .valoracion import Valoracion as ValoracionResource
+from .notificacion import Notificacion as NotificacionesResource
