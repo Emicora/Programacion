@@ -19,7 +19,7 @@ def creat_app():
     api.add_resource(resources.LoginResource, '/login')
     api.add_resource(resources.SigninResource, '/signin')
     api.add_resource(resources.ConfiguracionResource, '/configuracion')
-    api.add_resource(resources.ComentarioResource, '/comentario/<id>')
+    api.add_resource(resources.ComentarioResource, '/comentario')
     api.add_resource(resources.ValoracionResource, '/valoracion')
     api.add_resource(resources.NotificacionesResource, '/notificaciones')
     api.init_app(app)
