@@ -8,10 +8,8 @@ COMENTARIOS = {
 
 class Comentario(Resource):
 
-    def get(self, id):
-        if int(id) in COMENTARIOS:
-            return COMENTARIOS[int(id)]
-        return '', 404
+    def get(self):
+        return COMENTARIOS
 
     def put(self, id):
         if int(id) in COMENTARIOS:
