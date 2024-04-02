@@ -2,8 +2,8 @@ from flask_restful import Resource
 from flask import request
 
 LIBROS = {
-    1: {'nombre':'Las Crónicas de Narnia', 'autor':'C. S. Lewis'},
-    2: {'nombre':'El principito', 'autor':'Antoine de Saint-Exupéry'}
+    1: {'nombre':'Las Cronicas de Narnia', 'autor':'C. S. Lewis'},
+    2: {'nombre':'El principito', 'autor':'Antoine de Saint-Exupery'}
 }
 
 class Libro(Resource): 
