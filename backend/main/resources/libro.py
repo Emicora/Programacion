@@ -2,7 +2,7 @@ from flask import request
 from flask_restful import Resource
 
 LIBROS = {
-    1: {'nombre': 'Cien años de soledad', 'autor':'Gabriel García Márquez', 'editorial':'Sudamericana'},
+    1: {'nombre': 'Cien años de soledad', 'autor':'Gabriel Garcia Márquez', 'editorial':'Sudamericana'},
     2: {'nombre': '1984', 'autor': 'George Orwell', 'editorial':'Secker & Warburg'},
 }
     
