@@ -8,10 +8,10 @@ CONFIGURACION = {
 }
 
 class Configuracion(Resource):
-    
+
     def get(self):
         return CONFIGURACION
-        
+
     def put(self):
         data = request.get_json()
         CONFIGURACION.update(data)

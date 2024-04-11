@@ -7,10 +7,12 @@ COMENTARIOS = {
 }
 
 class Comentario(Resource):
-    
-    def get(self):
-        return COMENTARIOS        
-        
+
+    def get(self, id):
+        if int(id) in COMENTARIOS:
+            return COMENTARIOS[int(id)]
+        return '', 404
+
     def put(self, id):
         if int(id) in COMENTARIOS:
             comentario = COMENTARIOS[int(id)]

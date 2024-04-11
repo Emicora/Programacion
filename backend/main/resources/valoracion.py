@@ -3,10 +3,12 @@ from flask_restful import Resource
 
 
 VALORACIONES = {
-    1: {'rating': 4,
+    1: {
+        'rating': 4,
         'comment': 'Buen producto!'
     },
-    2: {'rating': 5,
+    2: {
+        'rating': 5,
         'comment': 'Excelente servicio!'
     }
 }
@@ -15,7 +17,6 @@ class Valoracion(Resource):
 
     def get(self):
         return VALORACIONES
-        
 
     def post(self):
         data = request.get_json()
