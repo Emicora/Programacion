@@ -1,18 +1,19 @@
 from flask_restful import Resource
 from flask import request
-from main.models import UsuariosModel
 from .. import db
+from main.models import UsuariosModel
+
 
 USUARIOS = {
-    1: {'nombre':'Boby', 'mail':'boby@gmail.com'},
-    2: {'nombre':'Peter', 'mail':'peter@gmail.com'}
+    1: {'nombre':'Boby', 'mail':'boby@gmail.com','contraseña':'1234','rol':'admin'},
+    2: {'nombre':'Peter', 'mail':'peter@gmail.com', 'contraseña':'1234','rol':'user'},
 }
 
 class Usuario(Resource): 
     def get(self, id):
-        usuario=db.session.query(UsuariosModel).get_or_404(id)
+        usuario = db.session.query(UsuariosModel).get_or_404(id) 
         return usuario.to_json()
-    
+
     def delete(self, id):
 
         if int(id) in USUARIOS:
@@ -40,4 +41,4 @@ class Usuarios(Resource):
         usuario = request.get_json()
         id = int(max(USUARIOS.keys()))+1
         USUARIOS[id] = usuario
-        return USUARIOS[id], 201    
+        return USUARIOS[id], 201
