@@ -1,37 +1,35 @@
 from flask_restful import Resource
+from main.models import PrestamosModel
+from .. import db
 from flask import request
-
-PRESTAMOS = {
-    1:  {'id_usuario': 1, 'id_libro': 1, 'fecha_prestamo': '2021-01-01', 'fecha_devolucion': '2021-01-15'},
-    2:  {'id_usuario': 1, 'id_libro': 2, 'fecha_prestamo': '2021-01-01', 'fecha_devolucion': '2021-01-15'}}
 
 class Prestamo(Resource): 
     def get(self, id):
-        if int(id) in PRESTAMOS:
-            return PRESTAMOS[int(id)]
-        return '', 404
+        prestamo = db.session.query(PrestamosModel).get_or_404(id)
+        return prestamo.to_json()
 
     def delete(self, id):
-        if int(id) in PRESTAMOS:
-            del PRESTAMOS[int(id)]
-            return '', 204
-        return '', 404
+        prestamo = db.session.query(PrestamosModel).get_or_404(id)
+        db.session.delete(prestamo)
+        db.session.commit()
+        return '', 204
 
     def put(self, id):
-        if int(id) in PRESTAMOS:
-            prestamo = PRESTAMOS[int(id)]
-            data = request.get_json()
-            prestamo.update(data)
-            return '', 201
-        return '', 404
+        prestamo = db.session.query(PrestamosModel).get_or_404(id)
+        data = request.get_json().items()
+        for key, value in data:
+            setattr(prestamo, key, value)
+        db.session.add(prestamo)
+        db.session.commit()
+        return prestamo.to_json(), 201
 
 class Prestamos(Resource):
     def get(self):
-        return PRESTAMOS
-
+        prestamos = db.session.query(PrestamosModel).all()
+        return jsonify([prestamo.to_json() for prestamo in prestamos])
+    
     def post(self):
-        data = request.get_json()
-        id = int(max(PRESTAMOS.keys())) + 1
-        id = '%i' % id
-        PRESTAMOS[id] = data
-        return '', 201
+        prestamo = PrestamosModel.from_json(request.get_json())
+        db.session.add(prestamo)
+        db.session.commit()
+        return prestamo.to_json(), 201

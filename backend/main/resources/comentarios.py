@@ -1,22 +1,27 @@
 from flask_restful import Resource
+from main.models import ComentariosModel
+from .. import db
 from flask import request
-
-COMENTARIOS = {
-    1: {'nombre': 'Juan', 'apellido':'Perez', 'mail': 'juan@example.com', 'comentario': 'Este es un ejemplo de comentario'},
-    2: {'nombre': 'Maria', 'apellido':'Lopez', 'mail': 'maria@example.com', 'comentario': 'Otro ejemplo de comentario'},
-}
 
 class Comentario(Resource):
 
     def get(self, id):
-        if int(id) in COMENTARIOS:
-            return COMENTARIOS[int(id)]
-        return '', 404
+        comentario = db.session.query(ComentariosModel).get_or_404(id)
+        return comentario.to_json()
 
     def put(self, id):
-        if int(id) in COMENTARIOS:
-            comentario = COMENTARIOS[int(id)]
-            data = request.get_json()
-            comentario.update(data)
-            return '', 201
-        return '', 404
+        comentario = db.session.query(ComentariosModel).get_or_404(id)
+        data = request.get_json().items()
+        for key, value in data:
+            setattr(comentario, key, value)
+        db.session.add(comentario)
+        db.session.commit()
+        return comentario.to_json(), 201
+    
+class Comentarios(Resource):
+
+    def post(self):
+        comentario = ComentariosModel.from_json(request.get_json())
+        db.session.add(comentario)
+        db.session.commit()
+        return comentario.to_json(), 201

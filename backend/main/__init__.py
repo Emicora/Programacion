@@ -48,9 +48,17 @@ def create_app():
 
     api.add_resource(resources.ComentarioResource, '/comentario/<id>')
 
+    api.add_resource(resources.ComentariosResource, '/comentarios')
+
     api.add_resource(resources.ValoracionResource, '/valoracion')
 
-    api.add_resource(resources.NotificacionResource, '/notificacion')
+    api.add_resource(resources.NotificacionResource, '/notificacion/<id>')
+
+    api.add_resource(resources.NotificacionesResource, '/notificaciones')
+
+    api.add_resource(resources.AutorResource, '/autor/<id>')
+
+    api.add_resource(resources.AutoresResource, '/autores')
    
     api.init_app(app)
    
