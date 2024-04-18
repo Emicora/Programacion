@@ -1,25 +1,17 @@
-from flask import request
+from flask import request, jsonify
 from flask_restful import Resource
+from main.models import ValoracionesModel
+from .. import db
 
-
-VALORACIONES = {
-    1: {
-        'rating': 4,
-        'comment': 'Buen producto!'
-    },
-    2: {
-        'rating': 5,
-        'comment': 'Excelente servicio!'
-    }
-}
 
 class Valoracion(Resource):
 
     def get(self):
-        return VALORACIONES
+        valoracion = db.session.query(ValoracionesModel).all()
+        return jsonify([valoracion.to_json() for valoracion in valoracion])
 
     def post(self):
-        data = request.get_json()
-        id = int(max(VALORACIONES.keys()))+1
-        VALORACIONES[id] = data
-        return VALORACIONES[id], 201
+        valoracion = ValoracionesModel.from_json(request.get_json())
+        db.session.add(valoracion)
+        db.session.commit()
+        return valoracion.to_json(), 201
