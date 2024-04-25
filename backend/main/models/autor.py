@@ -7,7 +7,7 @@ class Autores(db.Model):
     apellido = db.Column(db.String(50), nullable=False)
     nacionalidad = db.Column(db.String(50), nullable=False)
     fecha_nacimiento = db.Column(db.String, nullable=False)
-    libros = db.relationship('Libro', secondary= 'libro_autor' , back_populates='autores')
+    libros = db.relationship('Libros', secondary= 'libro_autor' , back_populates='autores')
 
     libro_autor = db.Table('libro_autor',
         db.Column('id_libro', db.Integer, db.ForeignKey('libros.id_libro')),
