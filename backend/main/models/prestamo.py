@@ -6,6 +6,8 @@ class Prestamos(db.Model):
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuarios.id_usuario'), nullable=False)
     fecha_prestamo = db.Column(db.String, nullable=False)
     fecha_devolucion = db.Column(db.String, nullable=False)
+    usuario = db.relationship('Usuario', back_populates='prestamos', uselist=False, single_parent=True)
+    libros = db.relationship('Libro', back_populates='prestamos', cascade='all, delete-orphan')
 
     def to_json(self):
         prestamo_json = {

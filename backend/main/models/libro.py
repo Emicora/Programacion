@@ -10,6 +10,9 @@ class Libros(db.Model):
     num_paginas = db.Column(db.Integer, nullable=False)
     isbn = db.Column(db.String(50), nullable=False)
     genero = db.Column(db.String(50), nullable=False)
+    valoraciones = db.relationship('Valoraciones', back_populates='libro', cascade='all, delete-orphan')
+    prestamo = db.relationship('Prestamo', back_populates='libro', uselist=False, single_parent=True)
+    autores = db.relationship('Autor', secondary= 'libro_autor' , back_populates='libros')
 
     def to_json(self):
         libro_json = {

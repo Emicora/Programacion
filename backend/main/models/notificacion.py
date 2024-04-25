@@ -6,6 +6,7 @@ class Notificaciones(db.Model):
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuarios.id_usuario'), nullable=False)
     mensaje = db.Column(db.String(50), nullable=False)
     fecha = db.Column(db.String, nullable=False)
+    usuario = db.relationship('Usuario', back_populates='notificaciones', uselist=False, single_parent=True)
 
     def to_json(self):
         notificacion_json = {

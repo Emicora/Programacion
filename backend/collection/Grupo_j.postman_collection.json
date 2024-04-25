@@ -4,7 +4,7 @@
 		"name": "Grupo_j",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "34012705",
-		"_collection_link": "https://restless-water-691599.postman.co/workspace/321a3af0-b396-4e65-8700-4d33a8d9a9bb/collection/34012705-cd769e3e-e139-49ef-b111-e671d1cd4216?action=share&source=collection_link&creator=34012705"
+		"_collection_link": "https://restless-water-691599.postman.co/workspace/New-Team-Workspace~321a3af0-b396-4e65-8700-4d33a8d9a9bb/collection/34012705-cd769e3e-e139-49ef-b111-e671d1cd4216?action=share&source=collection_link&creator=34012705"
 	},
 	"item": [
 		{
@@ -136,233 +136,6 @@
 							"path": [
 								"libro",
 								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "comentario",
-			"item": [
-				{
-					"name": "comentarios",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:4567/comentario/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"comentario",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "comentarios",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"Juana\",\n    \"comentario\": \"Nuevo comentario\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:4567/comentario/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"comentario",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "comentarios",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"id_comentario\": 1,\n    \"id_libro\": 123,\n    \"id_usuario\": 456,\n    \"comentario\": \"Gran libro, lo recomiendo completamente.\",\n    \"fecha_comentario\": \"2024-04-18T10:00:00\"\n  },\n  {\n    \"id_comentario\": 2,\n    \"id_libro\": 456,\n    \"id_usuario\": 789,\n    \"comentario\": \"La trama es emocionante, me mantuvo enganchado hasta el final.\",\n    \"fecha_comentario\": \"2024-04-17T15:30:00\"\n  },\n  {\n    \"id_comentario\": 3,\n    \"id_libro\": 789,\n    \"id_usuario\": 123,\n    \"comentario\": \"Interesante perspectiva sobre el tema. Me gustaría leer más del autor.\",\n    \"fecha_comentario\": \"2024-04-16T09:45:00\"\n  },\n  {\n    \"id_comentario\": 4,\n    \"id_libro\": 234,\n    \"id_usuario\": 567,\n    \"comentario\": \"El desarrollo de los personajes es excepcional. Una lectura muy gratificante.\",\n    \"fecha_comentario\": \"2024-04-15T12:20:00\"\n  },\n  {\n    \"id_comentario\": 5,\n    \"id_libro\": 567,\n    \"id_usuario\": 234,\n    \"comentario\": \"No pude soltar el libro hasta terminarlo. Una obra maestra.\",\n    \"fecha_comentario\": \"2024-04-14T17:00:00\"\n  }\n]\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:4567/comentarios",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"comentarios"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "prestamo",
-			"item": [
-				{
-					"name": "prestamos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:4567/prestamos",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"prestamos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "prestamo",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:4567/prestamo/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"prestamo",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "prestamo",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"fecha_prestamo\":\"2019-01-01\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:4567/prestamo/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"prestamo",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "prestamo",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:4567/prestamo/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"prestamo",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "prestamos",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"id_usuario\": 1, \"id_libro\": 3, \"fecha_prestamo\": \"2011-01-01\", \"fecha_devolucion\": \"2021-01-15\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:4567/prestamos",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "4567",
-							"path": [
-								"prestamos"
 							]
 						}
 					},
@@ -622,6 +395,142 @@
 					"request": {
 						"method": "GET",
 						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "prestamo",
+			"item": [
+				{
+					"name": "prestamos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamo/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha_prestamo\":\"2019-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamo/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamo/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id_usuario\": 1, \"id_libro\": 3, \"fecha_prestamo\": \"2011-01-01\", \"fecha_devolucion\": \"2021-01-15\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamos"
+							]
+						}
 					},
 					"response": []
 				}

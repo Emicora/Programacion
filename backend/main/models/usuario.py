@@ -6,6 +6,9 @@ class Usuarios(db.Model):
     mail = db.Column(db.String(50), nullable=False)
     contrasena = db.Column(db.String(50), nullable=False)
     rol = db.Column(db.String(50), nullable=False)
+    prestamos = db.relationship('Prestamos', back_populates='usuario', cascade='all, delete-orphan')
+    notificaciones = db.relationship('Notificaciones', back_populates='usuario', cascade='all, delete-orphan')
+    valoraciones = db.relationship('Valoraciones', back_populates='usuario', cascade='all, delete-orphan')
 
     def to_json(self):
         usuario_json = {

@@ -7,7 +7,9 @@ class Valoraciones(db.Model):
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuarios.id_usuario'), nullable=False)
     valoracion = db.Column(db.Integer, nullable=False)
     comentario = db.Column(db.String(50), nullable=False)
-
+    usuario = db.relationship('Usuario', back_populates='valoraciones', uselist=False, single_parent=True)
+    libro = db.relationship('Libro', back_populates='valoraciones', uselist=False, single_parent=True)
+    
     def to_json(self):
         valoracion_json = {
             'id_valoracion': self.id_valoracion,
