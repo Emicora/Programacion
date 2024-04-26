@@ -7,8 +7,6 @@ from .prestamo import Prestamos as PrestamosResource
 from .login import Login as LoginResource
 from .sign_in import SignIn as SignInResource
 from .configuracion import Configuracion as ConfiguracionResource
-from .comentarios import Comentario as ComentarioResource
-from .comentarios import Comentarios as ComentariosResource
 from .valoracion import Valoracion as ValoracionResource
 from .notificaciones import Notificacion as NotificacionResource
 from .notificaciones import Notificaciones as NotificacionesResource
