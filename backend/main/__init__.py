@@ -1,6 +1,8 @@
 from flask import Flask
 from dotenv import load_dotenv
 from flask_restful import Api
+from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
 
 import os
 
@@ -10,6 +12,10 @@ from flask_sqlalchemy import SQLAlchemy
 api = Api() 
 
 db = SQLAlchemy()
+
+migrate = Migrate()
+
+jwt = JWTManager()
 
 import main.resources as resources
 def create_app():
@@ -26,7 +32,7 @@ def create_app():
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
     db.init_app(app)
-        
+    migrate.init_app(app, db)
 
     api.add_resource(resources.UsuariosResource, '/usuarios')
    
@@ -56,6 +62,14 @@ def create_app():
 
     api.add_resource(resources.AutoresResource, '/autores')
    
+    api.add_resource(resources.AsistenciasResource, '/asistencias')
+
     api.init_app(app)
+
+    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
+    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = int(os.getenv('JWT_ACCESS_TOKEN_EXPIRES'))
+
+    jwt.init_app(app)
    
+     
     return app
