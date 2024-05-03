@@ -10,8 +10,7 @@ class Libros(db.Model):
     isbn = db.Column(db.String(50), nullable=False)
     genero = db.Column(db.String(50), nullable=False)
     id_prestamo = db.Column(db.Integer, db.ForeignKey('prestamos.id_prestamo'), nullable=True)
-    
-    autores = db.relationship('Autores', secondary='libro_autor', back_populates='libros')
+     
     valoraciones = db.relationship('Valoraciones', back_populates='libro', cascade='all, delete-orphan')
     prestamo = db.relationship('Prestamos', back_populates='libro', uselist=False, single_parent=True)
 

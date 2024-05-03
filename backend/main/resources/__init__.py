@@ -12,3 +12,4 @@ from .notificaciones import Notificacion as NotificacionResource
 from .notificaciones import Notificaciones as NotificacionesResource
 from .autor import Autor as AutorResource
 from .autor import Autores as AutoresResource
+from .asistencia import Asistencias as AsistenciasResource

@@ -1,5 +1,10 @@
 from .. import db
 
+libro_autor = db.Table('libro_autor',
+    db.Column('id_libro', db.Integer, db.ForeignKey('libros.id_libro'), primary_key=True),
+    db.Column('id_autor', db.Integer, db.ForeignKey('autores.id_autor'), primary_key=True)
+)
+
 class Autores(db.Model):
 
     id_autor = db.Column(db.Integer, primary_key=True)
@@ -7,12 +12,7 @@ class Autores(db.Model):
     apellido = db.Column(db.String(50), nullable=False)
     nacionalidad = db.Column(db.String(50), nullable=False)
     fecha_nacimiento = db.Column(db.String, nullable=False)
-    libros = db.relationship('Libros', secondary= 'libro_autor' , back_populates='autores')
-
-    libro_autor = db.Table('libro_autor',
-        db.Column('id_libro', db.Integer, db.ForeignKey('libros.id_libro')),
-        db.Column('id_autor', db.Integer, db.ForeignKey('autores.id_autor'))
-    )
+    libros = db.relationship('Libros', secondary='libro_autor', backref=db.backref('autores', lazy='dynamic'))
     
     def to_json(self):
         autor_json = {

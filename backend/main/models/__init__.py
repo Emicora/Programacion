@@ -4,3 +4,4 @@ from .libro import Libros as LibrosModel
 from .autor import Autores as AutoresModel
 from .notificacion import Notificaciones as NotificacionesModel
 from .valoracion import Valoraciones as ValoracionesModel
+from .autor import libro_autor as LibroAutorModel
