@@ -39,9 +39,6 @@ class Usuarios(Resource):
         if request.args.get('nombre'):
             usuarios = usuarios.filter(UsuariosModel.nombre.like('%' + request.args.get('nombre') + '%'))
 
-        if request.args.get('apellidos'):
-            usuarios = usuarios.filter(UsuariosModel.apellidos.like('%' + request.args.get('apellidos') + '%'))
-
         if request.args.get('email'):
             usuarios = usuarios.filter(UsuariosModel.email.like('%' + request.args.get('email') + '%'))
 
@@ -53,12 +50,6 @@ class Usuarios(Resource):
                 usuarios = usuarios.order_by(UsuariosModel.nombre)
             if request.args.get('sortby_nombre') == 'desc':
                 usuarios = usuarios.order_by(UsuariosModel.nombre.desc())
-
-        if request.args.get('sortby_apellidos'):
-            if request.args.get('sortby_apellidos') == 'asc':
-                usuarios = usuarios.order_by(UsuariosModel.apellidos)
-            if request.args.get('sortby_apellidos') == 'desc':
-                usuarios = usuarios.order_by(UsuariosModel.apellidos.desc())
 
         if request.args.get('sortby_email'):
             if request.args.get('sortby_email') == 'asc':

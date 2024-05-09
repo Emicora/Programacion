@@ -41,8 +41,8 @@ class Autores(Resource):
         if request.args.get('nombre'):
             autores = autores.filter(AutoresModel.nombre.like('%' + request.args.get('nombre') + '%'))
 
-        if request.args.get('apellidos'):
-            autores = autores.filter(AutoresModel.apellidos.like('%' + request.args.get('apellidos') + '%'))
+        if request.args.get('apellido'):
+            autores = autores.filter(AutoresModel.apellido.like('%' + request.args.get('apellido') + '%'))
 
         if request.args.get('fecha_nacimiento'):
             autores = autores.filter(AutoresModel.fecha_nacimiento.like('%' + request.args.get('fecha_nacimiento') + '%'))
@@ -56,11 +56,11 @@ class Autores(Resource):
             if request.args.get('sortby_nombre') == 'desc':
                 autores = autores.order_by(AutoresModel.nombre.desc())
 
-        if request.args.get('sortby_apellidos'):
-            if request.args.get('sortby_apellidos') == 'asc':
-                autores = autores.order_by(AutoresModel.apellidos)
-            if request.args.get('sortby_apellidos') == 'desc':
-                autores = autores.order_by(AutoresModel.apellidos.desc())
+        if request.args.get('sortby_apellido'):
+            if request.args.get('sortby_apellido') == 'asc':
+                autores = autores.order_by(AutoresModel.apellido)
+            if request.args.get('sortby_apellido') == 'desc':
+                autores = autores.order_by(AutoresModel.apellido.desc())
 
         if request.args.get('sortby_fecha_nacimiento'):
             if request.args.get('sortby_fecha_nacimiento') == 'asc':

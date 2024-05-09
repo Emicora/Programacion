@@ -20,8 +20,8 @@ class Valoracion(Resource):
         if request.args.get('id_valoracion'):
             valoraciones = valoraciones.filter(ValoracionesModel.id_valoracion == request.args.get('id_valoracion'))
 
-        if request.args.get('puntuacion'):
-            valoraciones = valoraciones.filter(ValoracionesModel.puntuacion == request.args.get('puntuacion'))
+        if request.args.get('valoracion'):
+            valoraciones = valoraciones.filter(ValoracionesModel.valoracion == request.args.get('valoracion'))
 
         if request.args.get('comentario'):
             valoraciones = valoraciones.filter(ValoracionesModel.comentario.like('%' + request.args.get('comentario') + '%'))
@@ -29,11 +29,11 @@ class Valoracion(Resource):
         if request.args.get('id_libro'):
             valoraciones = valoraciones.filter(ValoracionesModel.id_libro == request.args.get('id_libro'))
 
-        if request.args.get('sortby_puntuacion'):
-            if request.args.get('sortby_puntuacion') == 'asc':
-                valoraciones = valoraciones.order_by(ValoracionesModel.puntuacion)
-            if request.args.get('sortby_puntuacion') == 'desc':
-                valoraciones = valoraciones.order_by(ValoracionesModel.puntuacion.desc())
+        if request.args.get('sortby_valoracion'):
+            if request.args.get('sortby_valoracion') == 'asc':
+                valoraciones = valoraciones.order_by(ValoracionesModel.valoracion)
+            if request.args.get('sortby_valoracion') == 'desc':
+                valoraciones = valoraciones.order_by(ValoracionesModel.valoracion.desc())
 
         if request.args.get('sortby_comentario'):
             if request.args.get('sortby_comentario') == 'asc':

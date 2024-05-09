@@ -16,7 +16,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:4567/libros",
+							"raw": "http://127.0.0.1:4567/libros?titulo=Don&editorial=Alfa&genero=Novela&sortby_num_paginas&sortby_titulo&sortby_genero&sortby_nrAutores",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -27,6 +27,36 @@
 							"port": "4567",
 							"path": [
 								"libros"
+							],
+							"query": [
+								{
+									"key": "titulo",
+									"value": "Don"
+								},
+								{
+									"key": "editorial",
+									"value": "Alfa"
+								},
+								{
+									"key": "genero",
+									"value": "Novela"
+								},
+								{
+									"key": "sortby_num_paginas",
+									"value": null
+								},
+								{
+									"key": "sortby_titulo",
+									"value": null
+								},
+								{
+									"key": "sortby_genero",
+									"value": null
+								},
+								{
+									"key": "sortby_nrAutores",
+									"value": null
+								}
 							]
 						}
 					},
@@ -62,7 +92,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"Crónica del pájaro que da cuerda al mundo\",\n    \"autores\": [11],\n    \"editorial\": \"Tusquets Editores\",\n    \"fecha_publicacion\": \"1997-10-15\",\n    \"num_paginas\": 687,\n    \"isbn\": \"978-8472233101\",\n    \"genero\": \"Ficción contemporánea\"\n  }",
+							"raw": "{\n    \"titulo\": \"Cien años de soledad\",\n    \"autores\": [2],\n    \"editorial\": \"Editorial Sudamericana\",\n    \"fecha_publicacion\": \"1967-05-30\",\n    \"num_paginas\": 432,\n    \"isbn\": \"978-84-663-4938-4\",\n    \"genero\": \"Realismo mágico\"\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -152,7 +182,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:4567/usuarios",
+							"raw": "http://127.0.0.1:4567/usuarios?nombre=A&email=emi&telefono=2613&sortby_nombre&sortby_email&sortby_telefono",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -163,6 +193,32 @@
 							"port": "4567",
 							"path": [
 								"usuarios"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "A"
+								},
+								{
+									"key": "email",
+									"value": "emi"
+								},
+								{
+									"key": "telefono",
+									"value": "2613"
+								},
+								{
+									"key": "sortby_nombre",
+									"value": null
+								},
+								{
+									"key": "sortby_email",
+									"value": null
+								},
+								{
+									"key": "sortby_telefono",
+									"value": null
+								}
 							]
 						}
 					},
@@ -374,7 +430,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:4567/autores",
+							"raw": "http://127.0.0.1:4567/autores?nombre=G&apellido=A&fecha_nacimiento=196&sortby_nombre&sortby_apellido&sortby_fecha_nacimiento",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -385,6 +441,32 @@
 							"port": "4567",
 							"path": [
 								"autores"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "G"
+								},
+								{
+									"key": "apellido",
+									"value": "A"
+								},
+								{
+									"key": "fecha_nacimiento",
+									"value": "196"
+								},
+								{
+									"key": "sortby_nombre",
+									"value": null
+								},
+								{
+									"key": "sortby_apellido",
+									"value": null
+								},
+								{
+									"key": "sortby_fecha_nacimiento",
+									"value": null
+								}
 							]
 						}
 					},
@@ -409,7 +491,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:4567/prestamos",
+							"raw": "http://127.0.0.1:4567/prestamos?fecha_prestamo&fecha_devolucion&sortby_fecha_prestamo&sortby_fecha_devolucion&sortby_id_libro&sortby_id_usuario",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -420,6 +502,32 @@
 							"port": "4567",
 							"path": [
 								"prestamos"
+							],
+							"query": [
+								{
+									"key": "fecha_prestamo",
+									"value": null
+								},
+								{
+									"key": "fecha_devolucion",
+									"value": null
+								},
+								{
+									"key": "sortby_fecha_prestamo",
+									"value": null
+								},
+								{
+									"key": "sortby_fecha_devolucion",
+									"value": null
+								},
+								{
+									"key": "sortby_id_libro",
+									"value": null
+								},
+								{
+									"key": "sortby_id_usuario",
+									"value": null
+								}
 							]
 						}
 					},
@@ -681,7 +789,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:4567/valoracion",
+							"raw": "http://127.0.0.1:4567/valoracion?sortby_valoracion=&valoracion=4&comentario=me&sortby_comentario",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -692,6 +800,24 @@
 							"port": "4567",
 							"path": [
 								"valoracion"
+							],
+							"query": [
+								{
+									"key": "sortby_valoracion",
+									"value": ""
+								},
+								{
+									"key": "valoracion",
+									"value": "4"
+								},
+								{
+									"key": "comentario",
+									"value": "me"
+								},
+								{
+									"key": "sortby_comentario",
+									"value": null
+								}
 							]
 						}
 					},
@@ -723,6 +849,42 @@
 							"port": "4567",
 							"path": [
 								"valoracion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "asistencia",
+			"item": [
+				{
+					"name": "asistencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"id_libro\":\"12\",\n    \"id_autor\":\"11\"\n\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/asistencia",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"asistencia"
 							]
 						}
 					},

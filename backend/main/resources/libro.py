@@ -72,12 +72,6 @@ class Libros(Resource):
             if request.args.get('sortby_genero') == 'desc':
                 libros = libros.order_by(LibrosModel.genero.desc())
 
-        if request.args.get('sortby_nrValoraciones'):
-            if request.args.get('sortby_nrValoraciones') == 'asc':
-                libros = libros.outerjoin(ValoracionesModel).group_by(LibrosModel.id_libro).order_by(db.func.count(ValoracionesModel.id_valoracion).asc())
-            if request.args.get('sortby_nrValoraciones') == 'desc':
-                libros = libros.outerjoin(ValoracionesModel).group_by(LibrosModel.id_libro).order_by(db.func.count(ValoracionesModel.id_valoracion).desc())
-
         if request.args.get('sortby_nrPrestamos'):
             if request.args.get('sortby_nrPrestamos') == 'asc':
                 libros = libros.outerjoin(PrestamosModel).group_by(LibrosModel.id_libro).order_by(db.func.count(PrestamosModel.id_prestamo).asc())
