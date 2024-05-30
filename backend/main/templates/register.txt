@@ -1,0 +1,7 @@
+Bienvenido {{usuario.nombre}}!
+
+Gracias por registrarte en nuestro sistema.
+
+Con nuestro servicio podras:
+
+- Pedir prestamos de tu libros favoritos
