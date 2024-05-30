@@ -4,18 +4,23 @@ from .. import db
 from flask import request
 from flask import jsonify
 from sqlalchemy import func, desc, asc
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 
 class Prestamo(Resource): 
+    @role_required(roles=['admin','user'])
     def get(self, id):
         prestamo = db.session.query(PrestamosModel).get_or_404(id)
         return prestamo.to_json()
 
+    @role_required(roles=['admin'])
     def delete(self, id):
         prestamo = db.session.query(PrestamosModel).get_or_404(id)
         db.session.delete(prestamo)
         db.session.commit()
         return '', 204
 
+    @role_required(roles=['admin'])
     def put(self, id):
         prestamo = db.session.query(PrestamosModel).get_or_404(id)
         data = request.get_json().items()
@@ -26,6 +31,7 @@ class Prestamo(Resource):
         return prestamo.to_json(), 201
 
 class Prestamos(Resource):
+    @role_required(roles=['admin'])
     def get(self):
         page = 1
         per_page = 10
@@ -80,6 +86,7 @@ class Prestamos(Resource):
                         'page': page
                         })
     
+    @role_required(roles=['admin'])
     def post(self):
         prestamo = PrestamosModel.from_json(request.get_json())
         db.session.add(prestamo)

@@ -4,19 +4,22 @@ from flask import jsonify, request
 from .. import db
 from flask import request
 from sqlalchemy import func, desc, asc
-
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 
 class Libro(Resource): 
     def get(self, id):
         libro = db.session.query(LibrosModel).get_or_404(id)
         return libro.to_json()
 
+    @role_required(roles=['admin'])
     def delete(self, id):
         libro = db.session.query(LibrosModel).get_or_404(id)
         db.session.delete(libro)
         db.session.commit()
         return '', 204
 
+    @role_required(roles=['admin'])
     def put(self, id):
         libro = db.session.query(LibrosModel).get_or_404(id)
         data = request.get_json().items()
@@ -72,12 +75,6 @@ class Libros(Resource):
             if request.args.get('sortby_genero') == 'desc':
                 libros = libros.order_by(LibrosModel.genero.desc())
 
-        if request.args.get('sortby_nrValoraciones'):
-            if request.args.get('sortby_nrValoraciones') == 'asc':
-                libros = libros.outerjoin(ValoracionesModel).group_by(LibrosModel.id_libro).order_by(db.func.count(ValoracionesModel.id_valoracion).asc())
-            if request.args.get('sortby_nrValoraciones') == 'desc':
-                libros = libros.outerjoin(ValoracionesModel).group_by(LibrosModel.id_libro).order_by(db.func.count(ValoracionesModel.id_valoracion).desc())
-
         if request.args.get('sortby_nrPrestamos'):
             if request.args.get('sortby_nrPrestamos') == 'asc':
                 libros = libros.outerjoin(PrestamosModel).group_by(LibrosModel.id_libro).order_by(db.func.count(PrestamosModel.id_prestamo).asc())
@@ -99,6 +96,7 @@ class Libros(Resource):
             'page': page
         })
     
+    @role_required(roles=['admin'])
     def post(self):
         autores_id = request.get_json().get('autores')
         libro = LibrosModel.from_json(request.get_json())

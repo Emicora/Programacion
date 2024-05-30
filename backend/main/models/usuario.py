@@ -1,4 +1,5 @@
 from .. import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class Usuarios(db.Model):
     id_usuario = db.Column(db.Integer, primary_key=True)    
@@ -19,7 +20,23 @@ class Usuarios(db.Model):
             'rol': self.rol
         }
         return usuario_json
+    
+    def to_json_short(self):
+        usuario_json = {
+            'id': self.id_usuario,
+            'nombre': str(self.nombre),
+            'rol': str(self.rol),
+        }
+        return usuario_json
 
+    @property
+    def plain_password(self):
+        raise AttributeError('Password is not a readable attribute')
+    @plain_password.setter
+    def plain_password(self, password):
+        self.contrasena = generate_password_hash(password)
+    def check_password(self, password):
+        return check_password_hash(self.contrasena, password)
 
     @staticmethod
     #Convertir JSON a objeto
@@ -33,5 +50,5 @@ class Usuarios(db.Model):
         return Usuarios(id_usuario=id_usuario, 
                         nombre=nombre, 
                         mail=mail, 
-                        contrasena=contrasena, 
+                        plain_password=contrasena, 
                         rol=rol)

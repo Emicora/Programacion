@@ -4,6 +4,8 @@ from flask import request
 from flask import jsonify
 from .. import db
 from sqlalchemy import func, desc, asc
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 
 class Autor(Resource):
 
@@ -11,12 +13,14 @@ class Autor(Resource):
         autor = db.session.query(AutoresModel).get_or_404(id)
         return autor.to_json()
 
+    @role_required(['admin'])   
     def delete(self, id):
         autor = db.session.query(AutoresModel).get_or_404(id)
         db.session.delete(autor)
         db.session.commit()
         return '', 204
 
+    @role_required(['admin'])   
     def put(self, id):
         autor = db.session.query(AutoresModel).get_or_404(id)
         data = request.get_json().items()
@@ -41,8 +45,8 @@ class Autores(Resource):
         if request.args.get('nombre'):
             autores = autores.filter(AutoresModel.nombre.like('%' + request.args.get('nombre') + '%'))
 
-        if request.args.get('apellidos'):
-            autores = autores.filter(AutoresModel.apellidos.like('%' + request.args.get('apellidos') + '%'))
+        if request.args.get('apellido'):
+            autores = autores.filter(AutoresModel.apellido.like('%' + request.args.get('apellido') + '%'))
 
         if request.args.get('fecha_nacimiento'):
             autores = autores.filter(AutoresModel.fecha_nacimiento.like('%' + request.args.get('fecha_nacimiento') + '%'))
@@ -56,11 +60,11 @@ class Autores(Resource):
             if request.args.get('sortby_nombre') == 'desc':
                 autores = autores.order_by(AutoresModel.nombre.desc())
 
-        if request.args.get('sortby_apellidos'):
-            if request.args.get('sortby_apellidos') == 'asc':
-                autores = autores.order_by(AutoresModel.apellidos)
-            if request.args.get('sortby_apellidos') == 'desc':
-                autores = autores.order_by(AutoresModel.apellidos.desc())
+        if request.args.get('sortby_apellido'):
+            if request.args.get('sortby_apellido') == 'asc':
+                autores = autores.order_by(AutoresModel.apellido)
+            if request.args.get('sortby_apellido') == 'desc':
+                autores = autores.order_by(AutoresModel.apellido.desc())
 
         if request.args.get('sortby_fecha_nacimiento'):
             if request.args.get('sortby_fecha_nacimiento') == 'asc':
@@ -75,6 +79,7 @@ class Autores(Resource):
                         'pages': autores.pages,
                         'page': page})
 
+    @role_required(['admin'])   
     def post(self):
         autor = AutoresModel.from_json(request.get_json())
         db.session.add(autor)
