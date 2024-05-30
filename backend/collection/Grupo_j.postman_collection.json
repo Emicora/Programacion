@@ -179,10 +179,19 @@
 				{
 					"name": "usuarios",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzA5ODg0NCwianRpIjoiY2VkZWQ1MDctMzMzNy00MmQwLTk1ZDktYWViNTZiMWZkODFiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MTIsIm5iZiI6MTcxNzA5ODg0NCwiY3NyZiI6ImIxM2Q1OWNhLTJhNDItNDEzMS1iZTY3LTE1MDA0NWI0NzU4MyIsImV4cCI6MTcxNzEwMjQ0NCwicm9sIjoiYWRtaW4iLCJpZCI6MTIsIm1haWwiOiJFbWlsaW9AZ21haWwuY29tIn0.GU7tzSaLPB7Pu7J9mMPSXrVSPwT54PlIy635wHm77rc",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://127.0.0.1:4567/usuarios?nombre=A&email=emi&telefono=2613&sortby_nombre&sortby_email&sortby_telefono",
+							"raw": "http://127.0.0.1:4567/usuarios",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -197,27 +206,33 @@
 							"query": [
 								{
 									"key": "nombre",
-									"value": "A"
+									"value": "A",
+									"disabled": true
 								},
 								{
 									"key": "email",
-									"value": "emi"
+									"value": "emi",
+									"disabled": true
 								},
 								{
 									"key": "telefono",
-									"value": "2613"
+									"value": "2613",
+									"disabled": true
 								},
 								{
 									"key": "sortby_nombre",
-									"value": null
+									"value": null,
+									"disabled": true
 								},
 								{
 									"key": "sortby_email",
-									"value": null
+									"value": null,
+									"disabled": true
 								},
 								{
 									"key": "sortby_telefono",
-									"value": null
+									"value": null,
+									"disabled": true
 								}
 							]
 						}
@@ -614,11 +629,21 @@
 				{
 					"name": "prestamos",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzA5ODg0NCwianRpIjoiY2VkZWQ1MDctMzMzNy00MmQwLTk1ZDktYWViNTZiMWZkODFiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MTIsIm5iZiI6MTcxNzA5ODg0NCwiY3NyZiI6ImIxM2Q1OWNhLTJhNDItNDEzMS1iZTY3LTE1MDA0NWI0NzU4MyIsImV4cCI6MTcxNzEwMjQ0NCwicm9sIjoiYWRtaW4iLCJpZCI6MTIsIm1haWwiOiJFbWlsaW9AZ21haWwuY29tIn0.GU7tzSaLPB7Pu7J9mMPSXrVSPwT54PlIy635wHm77rc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id_prestamo\": 5,\n  \"id_usuario\": 5,\n  \"fecha_prestamo\": \"2024-04-14\",\n  \"fecha_devolucion\": \"2024-04-28\"\n}\n",
+							"raw": "  {\n    \"id_prestamo\": 9,\n    \"id_usuario\": 1,\n    \"fecha_prestamo\": \"2024-05-07\",\n    \"fecha_devolucion\": \"2024-05-21\"\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -885,6 +910,75 @@
 							"port": "4567",
 							"path": [
 								"asistencia"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail\":\"Emil@gmail.com\",\"contrasena\":\"Emil45\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Emil\",\"mail\":\"Emil@gmail.com\",\"contrasena\":\"Emil45\",\"rol\":\"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/auth/signin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"auth",
+								"signin"
 							]
 						}
 					},

@@ -29,9 +29,9 @@ class Notificacion(Resource):
 
 class Notificaciones(Resource):
 
-    def get(self, id):
-        notificacion = db.session.query(NotificacionesModel).get_or_404(id)
-        return notificacion.to_json()
+    def get(self):
+        notificaciones = db.session.query(NotificacionesModel).all()
+        return [notificacion.to_json() for notificacion in notificaciones]
 
     @role_required(roles=['admin'])
     def post(self):
