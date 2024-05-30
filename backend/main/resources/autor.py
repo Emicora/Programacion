@@ -4,6 +4,8 @@ from flask import request
 from flask import jsonify
 from .. import db
 from sqlalchemy import func, desc, asc
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 
 class Autor(Resource):
 
@@ -11,12 +13,14 @@ class Autor(Resource):
         autor = db.session.query(AutoresModel).get_or_404(id)
         return autor.to_json()
 
+    @role_required(['admin'])   
     def delete(self, id):
         autor = db.session.query(AutoresModel).get_or_404(id)
         db.session.delete(autor)
         db.session.commit()
         return '', 204
 
+    @role_required(['admin'])   
     def put(self, id):
         autor = db.session.query(AutoresModel).get_or_404(id)
         data = request.get_json().items()
@@ -75,6 +79,7 @@ class Autores(Resource):
                         'pages': autores.pages,
                         'page': page})
 
+    @role_required(['admin'])   
     def post(self):
         autor = AutoresModel.from_json(request.get_json())
         db.session.add(autor)

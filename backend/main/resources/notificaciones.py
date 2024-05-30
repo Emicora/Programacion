@@ -2,6 +2,8 @@ from flask import request
 from main.models import NotificacionesModel
 from .. import db
 from flask_restful import Resource
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 
 class Notificacion(Resource):
 
@@ -9,6 +11,7 @@ class Notificacion(Resource):
         notificacion = db.session.query(NotificacionesModel).get_or_404(id)
         return notificacion.to_json()
 
+    @role_required(roles=['admin'])
     def delete(self, id):
         notificacion = db.session.query(NotificacionesModel).get_or_404(id)
         db.session.delete(notificacion)
@@ -30,6 +33,7 @@ class Notificaciones(Resource):
         notificacion = db.session.query(NotificacionesModel).get_or_404(id)
         return notificacion.to_json()
 
+    @role_required(roles=['admin'])
     def post(self):
         notificacion = NotificacionesModel.from_json(request.get_json())
         db.session.add(notificacion)

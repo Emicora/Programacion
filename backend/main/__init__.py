@@ -46,10 +46,6 @@ def create_app():
 
     api.add_resource(resources.PrestamoResource, '/prestamo/<id>')
 
-    api.add_resource(resources.LoginResource, '/login')
-
-    api.add_resource(resources.SignInResource, '/sign-in')
-
     api.add_resource(resources.ConfiguracionResource, '/configuracion')
 
     api.add_resource(resources.ValoracionResource, '/valoracion')
@@ -71,5 +67,7 @@ def create_app():
 
     jwt.init_app(app)
    
+    from main.auth import routes
+    app.register_blueprint(routes.auth)
      
     return app

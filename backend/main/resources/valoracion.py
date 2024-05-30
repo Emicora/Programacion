@@ -3,6 +3,8 @@ from flask_restful import Resource
 from main.models import ValoracionesModel
 from .. import db
 from sqlalchemy import func, desc, asc
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 
 
 class Valoracion(Resource):
@@ -54,7 +56,8 @@ class Valoracion(Resource):
                         'pages': valoraciones.pages,
                         'page': page
                         })
-
+    
+    @role_required(roles=['user'])
     def post(self):
         valoracion = ValoracionesModel.from_json(request.get_json())
         db.session.add(valoracion)

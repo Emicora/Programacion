@@ -2,18 +2,28 @@ from flask_restful import Resource
 from flask import jsonify, request
 from main.models import UsuariosModel
 from .. import db
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
+from sqlalchemy import func, desc , asc
 
 class Usuario(Resource): 
-    def get(self, id):
-       usuario = db.session.query(UsuariosModel).get_or_404(id) 
-       return usuario.to_json()
+    @jwt_required(optional=True)
+    def get(self,id):
+        usuario = db.session.query(UsuariosModel).get_or_404(id)
+        current_identity = get_jwt_identity()
+        if current_identity:
+            return usuario.to_json()
+        else:
+            return usuario.to_json_short()
 
+    @role_required(roles=['admin','user'])
     def delete(self, id):
         usuario = db.session.query(UsuariosModel).get_or_404(id)
         db.session.delete(usuario)
         db.session.commit()
-        return '', 204
+        return usuario.to_json(), 204
 
+    @role_required(roles=['admin','user'])
     def put(self, id):
         usuario = db.session.query(UsuariosModel).get_or_404(id)
         data = request.get_json().items()
@@ -21,11 +31,12 @@ class Usuario(Resource):
             setattr(usuario, key, value)
         db.session.add(usuario)
         db.session.commit()
-        return usuario.to_json(), 201   
+        return usuario.to_json() , 201   
 
 
 class Usuarios(Resource):
- 
+
+    @role_required(['admin'])
     def get(self):
         page = 1
         per_page = 10
@@ -40,10 +51,7 @@ class Usuarios(Resource):
             usuarios = usuarios.filter(UsuariosModel.nombre.like('%' + request.args.get('nombre') + '%'))
 
         if request.args.get('email'):
-            usuarios = usuarios.filter(UsuariosModel.email.like('%' + request.args.get('email') + '%'))
-
-        if request.args.get('telefono'):
-            usuarios = usuarios.filter(UsuariosModel.telefono.like('%' + request.args.get('telefono') + '%'))
+            usuarios = usuarios.filter(UsuariosModel.mail.like('%' + request.args.get('mail') + '%'))
 
         if request.args.get('sortby_nombre'):
             if request.args.get('sortby_nombre') == 'asc':
@@ -51,17 +59,11 @@ class Usuarios(Resource):
             if request.args.get('sortby_nombre') == 'desc':
                 usuarios = usuarios.order_by(UsuariosModel.nombre.desc())
 
-        if request.args.get('sortby_email'):
+        if request.args.get('sortby_mail'):
             if request.args.get('sortby_email') == 'asc':
-                usuarios = usuarios.order_by(UsuariosModel.email)
+                usuarios = usuarios.order_by(UsuariosModel.mail)
             if request.args.get('sortby_email') == 'desc':
-                usuarios = usuarios.order_by(UsuariosModel.email.desc())
-
-        if request.args.get('sortby_telefono'):
-            if request.args.get('sortby_telefono') == 'asc':
-                usuarios = usuarios.order_by(UsuariosModel.telefono)
-            if request.args.get('sortby_telefono') == 'desc':
-                usuarios = usuarios.order_by(UsuariosModel.telefono.desc())
+                usuarios = usuarios.order_by(UsuariosModel.mail.desc())
 
         usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
         
