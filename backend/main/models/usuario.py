@@ -16,7 +16,6 @@ class Usuarios(db.Model):
             'id_usuario': self.id_usuario,
             'nombre': self.nombre,
             'mail': self.mail,
-            'contrasena': self.contrasena,
             'rol': self.rol
         }
         return usuario_json
