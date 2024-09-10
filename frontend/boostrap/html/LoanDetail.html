@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Detail</title>
+    <link rel="stylesheet" href="css/LoanDetail.css">
+</head>
+<body>
+    <div class="container">
+        <div class="loan-detail">
+            <header>
+                <button class="back-btn" onclick="history.back()">&#10094;</button>
+                <h1>Loan Detail</h1>
+            </header>
+            <div class="book-info">
+                <img src="images/cien-anos.jpg" alt="Cien años de soledad">
+                <h2>Cien años de soledad</h2>
+                <div class="book-meta">
+                    <span>📅 2021</span>
+                    <span>📖 342 Pages</span>
+                    <span>🎥 Action</span>
+                </div>
+            </div>
+            <div class="loan-dates">
+                <div class="date-picker">
+                    <label for="start-date">Start Date:</label>
+                    <input type="date" id="start-date">
+                </div>
+                <div class="date-picker">
+                    <label for="end-date">End Date:</label>
+                    <input type="date" id="end-date">
+                </div>
+            </div>
+            <button class="get-loan">Get Loan</button>
+        </div>
+    </div>
+</body>
+</html>
