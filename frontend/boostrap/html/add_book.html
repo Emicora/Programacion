@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar un Libro</title>
-    <link rel="stylesheet" href="add_book.css">
+    <link rel="stylesheet" href="css/add_book.css">
 </head>
 <body>
     <div class="container">
@@ -30,9 +30,16 @@
             <button type="submit" class="confirm-btn">Confirm</button>
         </form>
         <div class="footer">
-            <button class="footer-btn">New Book</button>
-            <button class="footer-btn">Admin Books</button>
+            <button class="footer-btn" onclick="openPage('add_book.html')">New Book</button>
+            <button class="footer-btn" onclick="openPage('book.html')">Admin Books</button>
         </div>
+        <script>
+            function openPage(page) {
+                // Add your logic here to navigate to the specified page
+                console.log("Navigating to " + page);
+                window.location.href = page; // Redirect to the specified page
+            }
+        </script>
     </div>
 </body>
 </html>

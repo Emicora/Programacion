@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Libro</title>
+    <link rel="stylesheet" href="css/bookdetail.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn" onclick="history.back()">&#10094;</button>
+        </header>
+        
+        <div class="book-background">
+            <img src="images/cien-anos.jpg" alt="Fondo del Libro">
+        </div>
+        
+        <div class="book-details">
+            <img src="images/gabriel-garcia.jpg" alt="Cien años de soledad" class="book-cover">
+            <div class="book-info">
+                <h2>Cien años de soledad</h2>
+                <div class="book-meta">
+                    <span>2021</span>
+                    <span>342 Pages</span>
+                    <span>Action</span>
+                </div>
+                <p>One Hundred Years of Solitude by Gabriel García Márquez is a seminal work of magical realism that chronicles the Buendía family across seven generations in the fictional town of Macondo. Through a blend of the fantastical and the real, the novel explores themes of love, power, and the cyclical nature of history. García Márquez’s vivid narrative captures the complexities of Latin American life, making this book a cornerstone of 20th-century literature.</p>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="return-loan-btn">Return a Loan</button>
+            <button class="get-loan-btn" onclick="window.location.href = 'LoanDetail.html'">Get Loan</button>
+        </div>
+    </div>
+</body>
+</html>

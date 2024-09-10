@@ -4,16 +4,27 @@
   padding: 0;
 }
 
-html, body {
-  height: auto;
-  overflow-y: scroll; /* Permite siempre hacer scroll si el contenido lo requiere */
+.back-btn {
+  position: absolute;
+  left:  10%;
+  top: 5%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #AD6666;
+  font-size: 20px;
+  cursor: pointer;
 }
 
+html, body {
+  min-height: 100%; /* Permitir que crezca según sea necesario */
+  overflow-y: auto; /* Permitir scroll vertical si es necesario */
+}
 
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #AD6666;
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Cambia a flex-start para permitir que el contenido fluya hacia arriba */
@@ -181,15 +192,7 @@ input, select {
   }
 
   .save-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 1.5rem;
-    border-radius: 8px;
-    font-size: 1.75rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 2rem; /* Añadir un margen inferior */
+      padding: 1rem;
+      font-size: 1.25rem;
   }
-  
 }
