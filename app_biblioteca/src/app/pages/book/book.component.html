@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Books</h1>
+        </div>
+        <a routerLink="/homeadmin" class="back-button">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+
+        <div class="book-list">
+            <div class="book-card">
+                <img src="padre-rico.jpg" alt="Padre Rico Padre Pobre">
+                <div class="book-info">
+                    <h2>Padre Rico Padre Pobre</h2>
+                    <div class="book-meta">
+                        <span class="rating">⭐ 9.5</span>
+                        <span class="genre">Action</span>
+                        <span class="year">2019</span>
+                        <span class="pages">315 Pages</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="ley-hombre.jpg" alt="La ley del más Hombre">
+                <div class="book-info">
+                    <h2>La ley del más Hombre</h2>
+                    <div class="book-meta">
+                        <span class="rating">⭐ 8.5</span>
+                        <span class="genre">Action</span>
+                        <span class="year">2021</span>
+                        <span class="pages">342 Pages</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+
+            <!-- Repite el bloque de arriba para más libros -->
+        </div>
+
+        <div class="footer">
+            <button class="footer-btn" routerLink="/add-book" href="#">New Book</button>
+        </div>
+    </div>
+</body>
+</html>

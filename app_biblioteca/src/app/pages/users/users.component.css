@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d97b73;
+    height: 100vh;
+    margin: 0; /* Asegúrate de que no haya margen alrededor */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #d97b73; /* Color de fondo similar al que muestras */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.back-button i {
+    font-size: 24px;
+    color: white;
+}
+
+.back-button:hover {
+    background-color: #d8675d; /* Color más oscuro al hacer hover */
+}
+
+.back-button:active {
+    background-color: #d97b73; /* Color al presionar */
+}
+.edit-btn, .delete-btn {
+    border: none;
+    background: none;
+    font-size: 2em; /* Ajusta el tamaño del icono */
+    cursor: pointer;
+}
+.container {
+    width: 100vw; /* Ocupar el 100% del ancho de la pantalla */
+    height: 100vh; /* Ocupar el 100% de la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #d97b73;
+    border-radius: 0; /* Elimina el borde redondeado si quieres que ocupe el ancho completo */
+    box-shadow: none; /* Elimina la sombra si no es necesaria para un diseño a pantalla completa */
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    background-color: #a7433a;
+    padding: 20px;
+    color: white;
+    width: 100%; /* Asegúrate de que la cabecera ocupe el ancho completo */
+}
+
+.user-list {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #ffdabd;
+    width: 100%; /* Ocupar el ancho completo */
+}
+.user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffe6c1;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgb(248, 150, 69); /* Contorno amarillo */
+}
+.user-card:hover {
+    transform: scale(1.02); /* Efecto hover para agrandar ligeramente */
+}
+.user-card img {
+    border-radius: 50%; /* Imagen redonda */
+    width: 50px; /* Ajusta el tamaño de la imagen */
+    height: 50px; /* Asegura que la imagen tenga proporciones uniformes */
+    object-fit: cover; /* Para que la imagen se ajuste bien dentro del marco */
+    margin-right: 15px; /* Añade espacio entre la imagen y el texto */
+}
+
+.user-info {
+    flex: 1; /* El texto ocupa el espacio sobrante */
+}
+
+.actions {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones de acción */
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #d97b73;
+    width: 100%; /* Asegúrate de que el pie de página ocupe el ancho completo */
+}
+
+.footer-btn {
+    background-color: white;
+    border: none;
+    padding: 20px 30px; /* Aumenta el padding para hacer los botones más grandes */
+    border-radius: 5px;
+    font-size: 1.5em; /* Aumenta el tamaño de la fuente */
+    cursor: pointer;
+}
+
+.footer-btn:hover {
+    background-color: #f1f1f1;
+}

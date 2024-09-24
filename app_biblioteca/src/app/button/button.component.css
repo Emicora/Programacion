@@ -1,0 +1,67 @@
+/* Contenedor de los botones */
+.float-buttons {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    background-color: #ac5e5e;
+    border-radius: 50px;
+    width: 200px; /* Ancho ajustado */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos de cada botón dentro del contenedor */
+.button-item {
+    flex: 1; /* Ocupa el 50% de la barra */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
+    border-radius: 50px;
+}
+
+/* Efecto hover en cada botón individual */
+.button-item:hover {
+    transform: scale(1.05); /* Agrandar un poco al hacer hover */
+    background-color: #aa5252; /* Cambiar el color del fondo al hacer hover */
+}
+
+/* Cambios en los iconos y el texto cuando se hace hover */
+.button-item:hover i,
+.button-item:hover p {
+    color: #532800; /* Cambiar el color del texto e íconos al hacer hover */
+}
+
+.button-item i {
+    font-size: 24px; /* Ajusta el tamaño del icono */
+    display: block;
+}
+
+.button-item p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* Ajustar el estilo del contenedor en pantallas pequeñas */
+@media (max-width: 600px) {
+    .float-buttons {
+        bottom: 60px;
+        right: 15px;
+        width: 150px; /* Ajuste del ancho en pantallas pequeñas */
+        height: 75px;
+    }
+
+    .button-item i {
+        font-size: 20px;
+    }
+
+    .button-item p {
+        font-size: 12px;
+    }
+}

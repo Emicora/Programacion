@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar un Libro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Add a Book</h1>
+        </div>
+        <a routerLink="/books" class="back-button">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+        
+        <form class="form-container">
+            <input type="text" placeholder="Title" class="input-field">
+            <input type="text" placeholder="Author" class="input-field">
+            <input type="text" placeholder="Editorial" class="input-field">
+            <textarea placeholder="Description" class="input-field"></textarea>
+
+            <div class="upload-section">
+                <div class="upload-box">
+                    <img src="image_icon.png" alt="Upload image" class="upload-icon">
+                    <span class="upload-add">+</span>
+                </div>
+                <div class="upload-box">
+                    <img src="pdf_icon.png" alt="Upload PDF" class="upload-icon">
+                    <span class="upload-add">+</span>
+                </div>
+            </div>
+            <button type="submit" class="confirm-btn">Confirm</button>
+        </form>
+        <div class="footer">
+            <button class="footer-btn">New Book</button>
+            <button class="footer-btn">Admin Books</button>
+        </div>
+    </div>
+</body>
+</html>
