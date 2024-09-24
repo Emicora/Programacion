@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F9B185;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 60px; /* Espacio para el menú inferior */
+}
+
+a {
+    text-decoration: none;
+    color: #AD6666;
+    transition: color 0.3s ease-in-out; /* Agrega una transición suave al color */
+}
+
+a:hover {
+    filter: brightness(70%); /* Aplica un filtro de brillo para oscurecer la imagen */
+    color: rgb(0, 0, 0); /* Cambia el color al pasar el mouse por encima */
+}
+
+/* Sección de categorías y libros */
+.book-section {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Rejilla estilo Netflix */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Varias columnas adaptables */
+    gap: 10px;
+}
+
+.book-item {
+    text-align: center;
+}
+
+.book-cover {
+    width: 150px; /* Ancho fijo para las imágenes */
+    height: 220px; /* Alto fijo para las imágenes */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsión */
+}
+
+.book-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Ajuste de columnas en pantallas pequeñas */
+    }
+
+    .book-cover {
+        width: 120px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajuste de columnas en pantallas muy pequeñas */
+    }
+
+    .book-cover {
+        width: 100px;
+        height: 150px;
+    }
+}
