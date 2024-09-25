@@ -15,6 +15,8 @@ export class EditProfileComponent implements OnInit {
     private userService: UserService
   ) {}
 
+  isAdmin: boolean = false; 
+
   ngOnInit() {
     const userIdParam = this.route.snapshot.paramMap.get('id');
     
@@ -29,6 +31,12 @@ export class EditProfileComponent implements OnInit {
       console.log('Rol del usuario cargado:', this.usuario.Rol);
     } else {
       console.error('No se encontró userId en la ruta');
+    }
+    const role = localStorage.getItem('role');
+    
+   
+    if (role === 'admin') {
+      this.isAdmin = true;
     }
   }
   

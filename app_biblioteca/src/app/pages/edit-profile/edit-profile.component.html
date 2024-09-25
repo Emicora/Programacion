@@ -20,11 +20,12 @@
       <input type="text" id="dob" name="fechaDeNacimiento" [(ngModel)]="usuario.fechaDeNacimiento"> <!-- Agregar name="fechaDeNacimiento" -->
       
       <label for="role">Role</label>
-      <select id="role" name="Rol" [(ngModel)]="usuario.Rol">
+      <select id="role" name="Rol" [disabled]="!isAdmin" [(ngModel)]="usuario.Rol">
         <option value="User">User</option>
         <option value="Admin">Admin</option>
         <option value="Librarian">Librarian</option>
       </select>
+      
 
       <label for="country">Country/Region</label>
       <select id="country" name="Pais" [(ngModel)]="usuario.Pais"> <!-- Agregar name="Pais" -->
