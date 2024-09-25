@@ -4,35 +4,6 @@
   padding: 0;
 }
 
-.back-button {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: #d97b73; /* Color de fondo similar al que muestras */
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
-
-.back-button i {
-  font-size: 24px;
-  color: white;
-}
-
-.back-button:hover {
-  background-color: #d8675d; /* Color más oscuro al hacer hover */
-}
-
-.back-button:active {
-  background-color: #d97b73; /* Color al presionar */
-}
-
 html, body {
   min-height: 100%;
   overflow-y: auto;
