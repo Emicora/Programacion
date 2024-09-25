@@ -10,9 +10,7 @@
         <div class="header">
             <h1>Add a Book</h1>
         </div>
-        <a routerLink="/books" class="back-button">
-            <i class="bi bi-arrow-left"></i>
-        </a>
+        <app-go-back></app-go-back>
         
         <form class="form-container">
             <input type="text" placeholder="Title" class="input-field">
@@ -32,10 +30,7 @@
             </div>
             <button type="submit" class="confirm-btn">Confirm</button>
         </form>
-        <div class="footer">
-            <button class="footer-btn">New Book</button>
-            <button class="footer-btn">Admin Books</button>
-        </div>
+        
     </div>
 </body>
 </html>
