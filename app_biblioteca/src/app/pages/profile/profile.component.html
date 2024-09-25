@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-</head>
+
 <body>
     <a routerLink="/homeadmin" class="back-button">
         <i class="bi bi-arrow-left"></i>
@@ -15,9 +9,9 @@
             <h2>Edit Profile</h2>
             <div class="profile-image">
                 <img src="Image.png" alt="Profile Image">
-                <span class="edit-icon">&#x1F4F7;</span> <!-- Cámara o icono para cambiar foto -->
-              </div>
-              <form action="">
+                <span class="edit-icon">&#x1F4F7;</span> 
+            </div>
+            <form action="">
                 <label for="name">Name</label>
                 <input type="text" id="name" value="Melissa Peters">
                 
@@ -28,11 +22,13 @@
                 <input type="text" id="dob" value="23/05/1995">
                 
                 <label for="role">Role</label>
-                <select id="role">
-                    <option value="user" selected>User</option>
-                    <option value="admin" selected>Admin</option>
-                    <option value="Librerian" selected>Librerian</option>
+               
+                <select id="role" [disabled]="!isAdmin">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                    <option value="librarian">Librarian</option>
                 </select>
+                
                 <label for="country">Country/Region</label>
                 <select id="country" name="country">
                     <option value="Afghanistan">Afghanistan</option>
@@ -144,11 +140,9 @@
                     <option value="San Marino">San Marino</option>
                 </select>
 
-
                 <button type="submit" class="save-btn">Save changes</button>
             </form>
         </div>
     </div>
 </body>
-</html>
 

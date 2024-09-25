@@ -1,0 +1,37 @@
+<a routerLink="/users" class="back-button">
+    <i class="bi bi-arrow-left"></i>
+</a>
+
+<div class="profile-edit-container" *ngIf="usuario">
+  <div class="profile-card">
+    <h2>Edit Profile</h2>
+    <div class="profile-image">
+      <img [src]="usuario.foto" alt="Profile Image">
+      <span class="edit-icon">&#x1F4F7;</span>
+    </div>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="nombre" [(ngModel)]="usuario.nombre"> <!-- Agregar name="nombre" -->
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="mail" [(ngModel)]="usuario.mail"> <!-- Agregar name="mail" -->
+     
+      <label for="dob">Date of Birth</label>
+      <input type="text" id="dob" name="fechaDeNacimiento" [(ngModel)]="usuario.fechaDeNacimiento"> <!-- Agregar name="fechaDeNacimiento" -->
+      
+      <label for="role">Role</label>
+      <select id="role" name="Rol" [(ngModel)]="usuario.Rol">
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+        <option value="Librarian">Librarian</option>
+      </select>
+
+      <label for="country">Country/Region</label>
+      <select id="country" name="Pais" [(ngModel)]="usuario.Pais"> <!-- Agregar name="Pais" -->
+        <option *ngFor="let country of getCountries()" [value]="country">{{country}}</option>
+      </select>
+
+      <button type="submit" class="save-btn">Save changes</button>
+    </form>
+  </div>
+</div>
