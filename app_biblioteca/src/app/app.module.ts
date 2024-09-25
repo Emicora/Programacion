@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { SearchComponent } from './search/search.component';
 import { ButtonComponent } from './button/button.component';
 import { HomesinregComponent } from './pages/homesinreg/homesinreg.component';
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -46,11 +48,13 @@ import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
     SearchComponent,
     ButtonComponent,
     HomesinregComponent,
-    HomeadminComponent
+    HomeadminComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

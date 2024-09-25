@@ -16,6 +16,7 @@ import { UserloginComponent } from './pages/userlogin/userlogin.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -35,6 +36,9 @@ const routes: Routes = [
 {path: 'userlogin', component: UserloginComponent},
 {path: 'registro', component: RegistroComponent},
 {path: 'reset', component: ResetPasswordComponent},
+{ path: 'users', component: UsersComponent },
+{ path: 'edit-profile/:id', component: EditProfileComponent }, // Añadimos la ruta con parámetro
+{ path: '', redirectTo: '/users', pathMatch: 'full' },
 
 
 
