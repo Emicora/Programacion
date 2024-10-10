@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { HomesinregComponent } from './pages/homesinreg/homesinreg.component';
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { GoBackComponent } from './components/go-back/go-back.component';
+import { LoginnComponent } from './components/loginn/loginn.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +54,15 @@ import { GoBackComponent } from './components/go-back/go-back.component';
     HomesinregComponent,
     HomeadminComponent,
     EditProfileComponent,
-    GoBackComponent
+    GoBackComponent,
+    LoginnComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
