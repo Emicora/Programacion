@@ -17,6 +17,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
 {path: 'registro', component: RegistroComponent},
 {path: 'reset', component: ResetPasswordComponent},
 { path: 'users', component: UsersComponent },
-{ path: 'edit-profile/:id', component: EditProfileComponent }, // Añadimos la ruta con parámetro
+{ path: 'edit-profile/:id', component: EditProfileComponent },
+{ path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 { path: '', redirectTo: '/users', pathMatch: 'full' },
 
 

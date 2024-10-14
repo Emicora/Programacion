@@ -1,0 +1,118 @@
+/* Estilo para el cuerpo */
+body {
+    font-family: 'Overpass', sans-serif;
+    font-size: 100%;
+    color: #1b262c;
+    margin: 0;
+    background: url('library.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Contenedor principal del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: rgba(249, 177, 133, 0.95);
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+.form-container:hover {
+    transform: translate(-50%, -50%) scale(1.02); /* Efecto de ampliación al pasar el ratón */
+}
+
+/* Estilo para las entradas del formulario */
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.1); /* Sombra interna */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+input:focus {
+    border: 1px solid #AD6666; /* Color del borde al enfocar */
+    box-shadow: inset 0px 3px 8px rgba(173, 102, 102, 0.5); /* Sombra más intensa */
+    outline: none; /* Eliminar el borde predeterminado de enfoque */
+}
+
+/* Botón de envío */
+button {
+    width: 100%;
+    background-color: #AD6666;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+button:hover {
+    background-color: #8B4E4E; /* Color más oscuro al pasar el ratón */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+    transform: translateY(-3px); /* Elevar el botón al pasar el ratón */
+}
+
+/* Estilo para los enlaces (Sign Up y Forgot Password) */
+.text-below-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.below-text {
+    font-size: 1.1rem;
+    color: #1b262c;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+.below-text:hover {
+    color: #AD6666;
+    transform: scale(1.1); /* Efecto de ampliación al pasar el ratón */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .form-container {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    .below-text {
+        font-size: 1rem;
+    }
+}
