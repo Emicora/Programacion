@@ -1,0 +1,134 @@
+/* Reset básico para margin y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F9B185;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra el contenido en pantallas grandes */
+}
+
+header {
+    background-color: #AD6666;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+
+h1 {
+    color: white;
+    font-size: 1.5em;
+}
+
+.loan-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 15px;
+}
+
+.loan-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.loan-item:hover {
+    transform: scale(1.02); /* Efecto hover para agrandar ligeramente */
+}
+
+.loan-item img {
+    width: 100px; /* Ajuste de tamaño más grande */
+    height: 130px; /* Ajuste de tamaño más grande */
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.loan-details {
+    margin-left: 15px;
+    flex: 1;
+}
+
+.loan-details h2 {
+    font-size: 1.2em; /* Aumenta el tamaño del título */
+    margin-bottom: 8px;
+}
+
+.loan-details p {
+    font-size: 1em; /* Aumenta el tamaño del texto */
+    margin-bottom: 4px;
+    color: #666;
+}
+
+.rating {
+    color: #ff8c00;
+    font-weight: bold;
+}
+
+.bottom-nav {
+    background-color: #AD6666;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-link i {
+    font-size: 24px; /* Tamaño del ícono */
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para pantallas más grandes */
+@media (min-width: 768px) {
+    .loan-item img {
+        width: 150px; /* Tamaño más grande para pantallas grandes */
+        height: 200px; /* Tamaño más grande para pantallas grandes */
+    }
+
+    .loan-details h2 {
+        font-size: 1.5em;
+    }
+
+    .loan-details p {
+        font-size: 1.1em;
+    }
+}
+

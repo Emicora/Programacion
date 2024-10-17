@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Book App</title>
+    <link rel="stylesheet" href="css/homesinreg.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <header class="top-bar">
+        <header class="top-bar">
+            <h1>What do you want to read?</h1>
+            <div class="search-container">
+                <input type="text" placeholder="Search" class="search-bar" list="book-titles">
+                <datalist id="book-titles">
+                    <option value="Cien años de soledad"></option>
+                    <option value="Harry Potter"></option>
+                    <option value="El Diario de Ana Frank"></option>
+                    <option value="Historias de Edad"></option>
+                    <option value="Drácula"></option>
+                    <option value="El amor en los tiempos del cólera"></option>
+                </datalist>
+                <button class="search-button">🔍</button>
+            </div>
+            <button  class="login-button" onclick="openPage('login.html')">Log In</button> <!-- Botón Log In -->
+            <script>
+                function openPage(page) {
+                    // Add your logic here to navigate to the specified page
+                    console.log("Navigating to " + page);
+                    window.location.href = page; // Redirect to the specified page
+                }
+            </script>
+        </header>
+    </header>
+
+    <!-- Aquí irán las secciones de contenido -->
+        <!-- Sección de categorías y libros -->
+    <section class="book-section">
+
+        <div class="book-grid">
+            <!-- Libros con sus portadas -->
+            <div class="book-item">
+                <a href="bookdetail.html">
+                    <img src="images/gabriel-garcia.jpg" alt="Cien años de soledad" class="book-cover">
+                </a>
+                <a href="bookdetail.html">Cien años de soledad</a>
+            </div>
+            <div class="book-item">
+                <a href="">
+                    <img src="images/harry-potter.jpg" alt="Harry Potter" class="book-cover">
+                </a>
+                <a href="">Harry Potter</a>
+            </div>
+            <div class="book-item">
+                <a href=""><img src="images/ana-frank.jpg" alt="El Diario de Ana Frank" class="book-cover">
+                </a>
+                <a href="">El Diario de Ana Frank</a>
+            </div>
+            <div class="book-item">
+                <a href="">
+                    <img src="images/historias-de-edad.jpg" alt="Historias de Edad" class="book-cover">
+                </a>
+                <a href="">Historias de Edad</a>
+            </div>
+            <div class="book-item">
+                <a href="">
+                    <img src="images/dracula.jpg" alt="Drácula" class="book-cover">
+                </a>
+                <a href="">Drácula</a>
+            </div>
+            <div class="book-item">
+                <a href="">
+                    <img src="images/el-amor.jpg" alt="El amor en los tiempos del cólera" class="book-cover">
+                </a>
+                <a href="">El amor en los tiempos del cólera</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+</body>
+</html>

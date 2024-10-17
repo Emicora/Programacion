@@ -1,0 +1,38 @@
+/* Barra superior */
+.top-bar {
+    background-color: #AD6666;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.search-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    width: 80%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+
+datalist option {
+    font-size: 16px;
+    padding: 5px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin-left: -35px;
+    cursor: pointer;
+}

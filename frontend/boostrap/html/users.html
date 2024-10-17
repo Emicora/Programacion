@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive User List</title>
+    <link rel="stylesheet" href="css/users.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Users</h1>
+        </div>
+        <div class="user-list">
+            <div class="user-card">
+                <img src="images/Untitled.jpeg" alt="User Profile">
+                <div class="user-info">
+                    <h2>Emiliano</h2>
+                    <p>emilianocoratolo@gmail.com</p>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+            
+            <div class="user-card">
+                <img src="images/anime.jpeg" alt="User Profile">
+                <div class="user-info">
+                    <h2>Valentín</h2>
+                    <p>valentincoratolo@gmail.com</p>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+            
+            <div class="user-card">
+                <img src="images/images.jpeg" alt="User Profile">
+                <div class="user-info">
+                    <h2>Bruno</h2>
+                    <p>brunopiastrellini@gmail.com</p>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+
+            <div class="user-card">
+                <img src="images/conejo.jpeg" alt="User Profile">
+                <div class="user-info">
+                    <h2>Federico</h2>
+                    <p>fedepalumbo@gmail.com</p>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button class="footer-btn" onclick="openPage('add_book.html')">New Book</button>
+            <button class="footer-btn" onclick="openPage('book.html')">Admin Books</button>
+        </div>
+        <script>
+            function openPage(page) {
+                // Add your logic here to navigate to the specified page
+                console.log("Navigating to " + page);
+                window.location.href = page; // Redirect to the specified page
+            }
+        </script>
+    </div>
+</body>
+</html>

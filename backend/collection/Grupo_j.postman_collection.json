@@ -1,0 +1,1012 @@
+{
+	"info": {
+		"_postman_id": "cd769e3e-e139-49ef-b111-e671d1cd4216",
+		"name": "Grupo_j",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34012705",
+		"_collection_link": "https://restless-water-691599.postman.co/workspace/New-Team-Workspace~321a3af0-b396-4e65-8700-4d33a8d9a9bb/collection/34012705-cd769e3e-e139-49ef-b111-e671d1cd4216?action=share&source=collection_link&creator=34012705"
+	},
+	"item": [
+		{
+			"name": "libro",
+			"item": [
+				{
+					"name": "libros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/libros?titulo=Don&editorial=Alfa&genero=Novela&sortby_num_paginas&sortby_titulo&sortby_genero&sortby_nrAutores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"libros"
+							],
+							"query": [
+								{
+									"key": "titulo",
+									"value": "Don"
+								},
+								{
+									"key": "editorial",
+									"value": "Alfa"
+								},
+								{
+									"key": "genero",
+									"value": "Novela"
+								},
+								{
+									"key": "sortby_num_paginas",
+									"value": null
+								},
+								{
+									"key": "sortby_titulo",
+									"value": null
+								},
+								{
+									"key": "sortby_genero",
+									"value": null
+								},
+								{
+									"key": "sortby_nrAutores",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/libro/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"libro",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libros",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Cien años de soledad\",\n    \"autores\": [2],\n    \"editorial\": \"Editorial Sudamericana\",\n    \"fecha_publicacion\": \"1967-05-30\",\n    \"num_paginas\": 432,\n    \"isbn\": \"978-84-663-4938-4\",\n    \"genero\": \"Realismo mágico\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/libros",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"libros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/libro/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"libro",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_prestamo\":\"5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/libro/11",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"libro",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "usuarios",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzA5ODg0NCwianRpIjoiY2VkZWQ1MDctMzMzNy00MmQwLTk1ZDktYWViNTZiMWZkODFiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MTIsIm5iZiI6MTcxNzA5ODg0NCwiY3NyZiI6ImIxM2Q1OWNhLTJhNDItNDEzMS1iZTY3LTE1MDA0NWI0NzU4MyIsImV4cCI6MTcxNzEwMjQ0NCwicm9sIjoiYWRtaW4iLCJpZCI6MTIsIm1haWwiOiJFbWlsaW9AZ21haWwuY29tIn0.GU7tzSaLPB7Pu7J9mMPSXrVSPwT54PlIy635wHm77rc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:4567/usuarios",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "A",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "emi",
+									"disabled": true
+								},
+								{
+									"key": "telefono",
+									"value": "2613",
+									"disabled": true
+								},
+								{
+									"key": "sortby_nombre",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "sortby_email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "sortby_telefono",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Valen\",\"mail\":\"Valen@gmail.com\",\"contrasena\":\"Valen123\",\"rol\":\"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/usuarios",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/usuario/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Bruno\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/usuario/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/usuario/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"usuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "autor",
+			"item": [
+				{
+					"name": "autores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Pedro\",\n  \"apellido\": \"García Márquez\",\n  \"nacionalidad\": \"Colombiano\",\n  \"fecha_nacimiento\": \"1927-03-06\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/autores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/autor/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"autor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Bruno\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/autor/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"autor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/autores?nombre=G&apellido=A&fecha_nacimiento=196&sortby_nombre&sortby_apellido&sortby_fecha_nacimiento",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"autores"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "G"
+								},
+								{
+									"key": "apellido",
+									"value": "A"
+								},
+								{
+									"key": "fecha_nacimiento",
+									"value": "196"
+								},
+								{
+									"key": "sortby_nombre",
+									"value": null
+								},
+								{
+									"key": "sortby_apellido",
+									"value": null
+								},
+								{
+									"key": "sortby_fecha_nacimiento",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autor",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "prestamo",
+			"item": [
+				{
+					"name": "prestamos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamos?fecha_prestamo&fecha_devolucion&sortby_fecha_prestamo&sortby_fecha_devolucion&sortby_id_libro&sortby_id_usuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamos"
+							],
+							"query": [
+								{
+									"key": "fecha_prestamo",
+									"value": null
+								},
+								{
+									"key": "fecha_devolucion",
+									"value": null
+								},
+								{
+									"key": "sortby_fecha_prestamo",
+									"value": null
+								},
+								{
+									"key": "sortby_fecha_devolucion",
+									"value": null
+								},
+								{
+									"key": "sortby_id_libro",
+									"value": null
+								},
+								{
+									"key": "sortby_id_usuario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamo/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha_prestamo\":\"2019-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamo/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamo/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prestamos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzA5ODg0NCwianRpIjoiY2VkZWQ1MDctMzMzNy00MmQwLTk1ZDktYWViNTZiMWZkODFiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MTIsIm5iZiI6MTcxNzA5ODg0NCwiY3NyZiI6ImIxM2Q1OWNhLTJhNDItNDEzMS1iZTY3LTE1MDA0NWI0NzU4MyIsImV4cCI6MTcxNzEwMjQ0NCwicm9sIjoiYWRtaW4iLCJpZCI6MTIsIm1haWwiOiJFbWlsaW9AZ21haWwuY29tIn0.GU7tzSaLPB7Pu7J9mMPSXrVSPwT54PlIy635wHm77rc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"id_prestamo\": 9,\n    \"id_usuario\": 1,\n    \"fecha_prestamo\": \"2024-05-07\",\n    \"fecha_devolucion\": \"2024-05-21\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/prestamos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"prestamos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notificacion",
+			"item": [
+				{
+					"name": "notificaciones",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_notificacion\": 1,\n  \"id_usuario\": 123,\n  \"mensaje\": \"¡Bienvenido a nuestra plataforma!\",\n  \"fecha\": \"2024-04-18\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/notificaciones",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"notificaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notificacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/notificacion/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"notificacion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notificacion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"mensaje\":\"Hola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/notificacion/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"notificacion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notificacion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/notificacion/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"notificacion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notificaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/notificaciones",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"notificaciones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "valoracion",
+			"item": [
+				{
+					"name": "valoracion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:4567/valoracion?sortby_valoracion=&valoracion=4&comentario=me&sortby_comentario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"valoracion"
+							],
+							"query": [
+								{
+									"key": "sortby_valoracion",
+									"value": ""
+								},
+								{
+									"key": "valoracion",
+									"value": "4"
+								},
+								{
+									"key": "comentario",
+									"value": "me"
+								},
+								{
+									"key": "sortby_comentario",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "valoraciones",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"rating\": 5,\n        \"comment\": \"Perfecto!\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/valoracion",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"valoracion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "asistencia",
+			"item": [
+				{
+					"name": "asistencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"id_libro\":\"12\",\n    \"id_autor\":\"11\"\n\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/asistencia",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"asistencia"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail\":\"Emil@gmail.com\",\"contrasena\":\"Emil45\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Emil\",\"mail\":\"Emil@gmail.com\",\"contrasena\":\"Emil45\",\"rol\":\"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:4567/auth/signin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "4567",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "configuracion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:4567/configuracion",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4567",
+					"path": [
+						"configuracion"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

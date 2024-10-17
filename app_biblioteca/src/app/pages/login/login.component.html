@@ -1,0 +1,22 @@
+<body>
+    <div id="contenedor">
+        <h1 class="welcome-title">Welcome!</h1>
+        <div class="image-container">
+            <img src="Hands Show.png" alt="Descripción de la imagen">
+        </div>
+        <div class="image-text-container">
+            <img src="Big Shoes Torso.png" alt="Descripción de la imagen">
+            <p class="role-text">Pick your role!</p>
+        </div>
+        <div class="button-container">
+     
+            <button class="button" (click)="loginAsAdmin()">Admin</button>
+            <button class="button" (click)="loginAsUser()">User</button>
+            <button class="button" (click)="loginAsLibrarian()">Librarian</button>
+        </div>
+        <div class="text-below-buttons">
+            <button class="below-text" routerLink="/registro" href="#">Sign Up</button>
+            <button class="below-text" routerLink="/reset" href="#">Forgot Password</button>
+        </div>
+    </div>
+</body>

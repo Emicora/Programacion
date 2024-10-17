@@ -1,0 +1,151 @@
+/* Estilo general */
+body {
+  font-family: 'Overpass', sans-serif;
+  font-weight: normal;
+  font-size: 100%;
+  color: #1b262c;
+  margin: 0;
+  background: url(library.jpg) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#central {
+  background-color: rgba(249, 177, 133, 0.9); /* Fondo semitransparente */
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* Ajustar ancho máximo */
+}
+
+.titulo {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1b262c;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 30px; /* Borde elíptico */
+  font-size: 1rem;
+  background-color: #fff;
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #AD6666;
+  box-shadow: 0px 0px 10px rgba(173, 102, 102, 0.5);
+}
+
+button {
+  padding: 1rem;
+  border: none;
+  border-radius: 30px; /* Borde elíptico */
+  font-size: 1.2rem;
+  background-color: #AD6666;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #8B4E4E;
+}
+
+.pie-form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pie-form a {
+  color: #1b262c;
+  text-decoration: none;
+  font-size: 1rem;
+  background-color: rgba(249, 177, 133, 0.9);
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.pie-form a:hover {
+  background-color: #8B4E4E;
+  color: #ffffff;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  #central {
+      padding: 2rem;
+      max-width: 90%;
+  }
+
+  .titulo {
+      font-size: 1.8rem;
+  }
+
+  input {
+      font-size: 1rem;
+      padding: 1rem;
+  }
+
+  button {
+      font-size: 1rem;
+      padding: 1rem;
+  }
+
+  .pie-form a {
+      font-size: 0.9rem;
+  }
+}
+
+/* Media Queries para pantallas extra pequeñas */
+@media (max-width: 480px) {
+  #central {
+      padding: 1.5rem;
+      max-width: 100%;
+  }
+
+  .titulo {
+      font-size: 1.5rem;
+  }
+
+  input {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+  }
+
+  button {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+  }
+
+  .pie-form a {
+      font-size: 0.8rem;
+  }
+}

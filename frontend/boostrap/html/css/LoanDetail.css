@@ -1,0 +1,147 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #AD6666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px; /* Incremento del tamaño máximo */
+    margin: 40px;
+}
+
+.loan-detail {
+    background-color: #fca58d;
+    border-radius: 20px;
+    padding: 30px; /* Aumentado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px; /* Aumentado */
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 28px; /* Aumentado */
+    color: white;
+    cursor: pointer;
+}
+
+h1 {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px; /* Aumentado */
+    color: white;
+}
+
+.book-info {
+    text-align: center;
+}
+
+.book-info img {
+    width: 160px; /* Aumentado */
+    border-radius: 10px;
+    margin-bottom: 20px; /* Aumentado */
+}
+
+.book-info h2 {
+    font-size: 26px; /* Aumentado */
+    margin-bottom: 15px; /* Aumentado */
+    color: white;
+}
+
+.book-meta {
+    font-size: 18px; /* Aumentado */
+    color: #fff;
+}
+
+.book-meta span {
+    display: block;
+    margin: 8px 0; /* Aumentado */
+}
+
+.loan-dates {
+    margin: 30px 0; /* Aumentado */
+}
+
+.date-picker {
+    margin-bottom: 20px; /* Aumentado */
+}
+
+.date-picker label {
+    display: block;
+    margin-bottom: 10px; /* Aumentado */
+    color: white;
+}
+
+.date-picker input {
+    width: 100%;
+    padding: 15px; /* Aumentado */
+    font-size: 18px; /* Aumentado */
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.get-loan {
+    width: 100%;
+    padding: 20px; /* Aumentado */
+    background-color: #c17d7d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px; /* Aumentado */
+    cursor: pointer;
+}
+
+.get-loan:hover {
+    background-color: #a96464;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 20px; /* Ajustado para pantallas pequeñas */
+    }
+
+    .book-info img {
+        width: 120px; /* Ajustado para pantallas pequeñas */
+    }
+
+    .book-info h2 {
+        font-size: 22px; /* Ajustado para pantallas pequeñas */
+    }
+
+    .book-meta {
+        font-size: 16px; /* Ajustado para pantallas pequeñas */
+    }
+
+    .date-picker input {
+        padding: 12px; /* Ajustado para pantallas pequeñas */
+        font-size: 16px; /* Ajustado para pantallas pequeñas */
+    }
+
+    .get-loan {
+        padding: 18px; /* Ajustado para pantallas pequeñas */
+        font-size: 18px; /* Ajustado para pantallas pequeñas */
+    }
+}

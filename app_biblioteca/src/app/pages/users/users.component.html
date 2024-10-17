@@ -1,0 +1,27 @@
+<div class="header">
+    <h1>Users</h1>
+</div>
+
+<app-go-back></app-go-back>
+
+<div class="user-list">
+    <div class="user-card" *ngFor="let user of arrayUsuarios">
+      <!-- Mostrar la imagen del usuario -->
+      <img [src]="user.foto" alt="{{user.nombre}} Profile">
+      
+      <div class="user-info">
+        <h2>{{user.nombre}}</h2>
+        <p>Email: {{user.mail}}</p>
+
+      </div>
+  
+      <div class="actions">
+        <a [routerLink]="['/edit-profile', user.id]">
+            <button class="edit-btn">✏️</button>
+          </a>
+          
+        <button class="delete-btn">🗑️</button>
+      </div>
+    </div>
+  </div>
+  

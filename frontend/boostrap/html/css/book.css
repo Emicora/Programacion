@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffdabd   ;
+    width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
+    height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
+    margin: 0;
+    border-radius: 0px;
+}
+
+.header {
+    background-color: #d97b73;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    color: white;
+    font-size: 24px;
+}
+
+.book-list {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.book-card {
+    display: flex;
+    align-items: center;
+    background-color: #f49b4399;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.book-card img {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.book-meta {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    font-size: 12px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.actions {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #d97b73;
+}
+
+.footer-btn {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.footer-btn:hover {
+    background-color: #f1f1f1;
+}
