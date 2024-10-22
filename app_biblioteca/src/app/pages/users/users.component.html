@@ -1,27 +1,38 @@
-<div class="header">
-    <h1>Users</h1>
+<div class="search-container">
+  <input [(ngModel)]="searchCriteria.nombre" placeholder="Buscar por nombre" class="search-bar" />
+  <input [(ngModel)]="searchCriteria.email" placeholder="Buscar por email" class="search-bar" />
+  <input [(ngModel)]="searchCriteria.rol" placeholder="Buscar por rol" class="search-bar" />
+  <button (click)="onSearchClick()" class="search-button">Buscar</button>
 </div>
 
-<app-go-back></app-go-back>
+
+
+<div class="header">
+  <app-go-back></app-go-back>
+
+  <h1>Users</h1>
+  <button class="create-btn" (click)="goToCreateUser()">Crear Usuario</button>
+</div>
 
 <div class="user-list">
-    <div class="user-card" *ngFor="let user of arrayUsuarios">
-      <!-- Mostrar la imagen del usuario -->
-      <img [src]="user.foto" alt="{{user.nombre}} Profile">
-      
-      <div class="user-info">
-        <h2>{{user.nombre}}</h2>
-        <p>Email: {{user.mail}}</p>
-
-      </div>
-  
-      <div class="actions">
-        <a [routerLink]="['/edit-profile', user.id]">
-            <button class="edit-btn">✏️</button>
-          </a>
-          
-        <button class="delete-btn">🗑️</button>
-      </div>
+  <div class="user-card" *ngFor="let user of arrayUsuarios">
+    <img src="users.jpg" alt="{{user.nombre}} Profile">
+    <div class="user-info">
+      <h2>{{user.nombre}}</h2>
+      <p>Email: {{user.mail}}</p>
+    </div>
+    <div class="actions">
+      <a [routerLink]="['/edit-profile', user.id]">
+        <button class="edit-btn">✏️</button>
+      </a>
+      <button class="delete-btn" (click)="deleteUser(user.id)">🗑️</button>
     </div>
   </div>
-  
+</div>
+
+<!-- Controles de paginación -->
+<div class="pagination-controls">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+  <span>Página {{currentPage}} de {{totalPages}}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+</div>

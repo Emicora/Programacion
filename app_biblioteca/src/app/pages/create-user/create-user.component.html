@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Crear Usuario</h2>
+    <app-go-back></app-go-back>
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" type="text">
+      </div>
+  
+      <div>
+        <label for="mail">Email</label>
+        <input id="mail" formControlName="mail" type="email">
+      </div>
+  
+      <div>
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" formControlName="contrasena" type="password">
+      </div>
+  
+      <div>
+        <label for="rol">Rol</label>
+        <select id="rol" formControlName="rol">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+          <option value="librarian">Librarian</option>
+        </select>
+      </div>
+      
+      <button type="submit" [disabled]="createForm.invalid">Crear Usuario</button>
+  
+      <!-- Mensaje de éxito -->
+      <div *ngIf="showSuccessMessage" class="success-message">
+        Usuario creado con éxito.
+      </div>
+    </form>
+  </div>
+  

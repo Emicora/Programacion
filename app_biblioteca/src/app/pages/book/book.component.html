@@ -1,58 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book List</title>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Books</h1>
-        </div>
-        <app-go-back></app-go-back>
 
-        <div class="book-list">
-            <div class="book-card">
-                <img src="padre-rico.jpg" alt="Padre Rico Padre Pobre">
-                <div class="book-info">
-                    <h2>Padre Rico Padre Pobre</h2>
-                    <div class="book-meta">
-                        <span class="rating">⭐ 9.5</span>
-                        <span class="genre">Action</span>
-                        <span class="year">2019</span>
-                        <span class="pages">315 Pages</span>
-                    </div>
-                </div>
-                <div class="actions">
-                    <button class="edit-btn">✏️</button>
-                    <button class="delete-btn">🗑️</button>
-                </div>
-            </div>
+<div class="search-container">
+  <div class="search-fields">
+    <input [(ngModel)]="searchCriteria.titulo" placeholder="Buscar por título" class="search-bar" />
+    <input [(ngModel)]="searchCriteria.editorial" placeholder="Buscar por editorial" class="search-bar" />
+    <input [(ngModel)]="searchCriteria.isbn" placeholder="Buscar por ISBN" class="search-bar" />
+  </div>
+  <button (click)="onSearchClick()" class="search-button">Buscar</button>
+</div>
 
-            <div class="book-card">
-                <img src="ley-hombre.jpg" alt="La ley del más Hombre">
-                <div class="book-info">
-                    <h2>La ley del más Hombre</h2>
-                    <div class="book-meta">
-                        <span class="rating">⭐ 8.5</span>
-                        <span class="genre">Action</span>
-                        <span class="year">2021</span>
-                        <span class="pages">342 Pages</span>
-                    </div>
-                </div>
-                <div class="actions">
-                    <button class="edit-btn">✏️</button>
-                    <button class="delete-btn">🗑️</button>
-                </div>
-            </div>
 
-            <!-- Repite el bloque de arriba para más libros -->
-        </div>
-
-        <div class="footer">
-            <button class="footer-btn" routerLink="/add-book" href="#">New Book</button>
-        </div>
+<div class="header">
+    <app-go-back></app-go-back>
+    <h1>Libros</h1>
+    <button class="add-book-btn" (click)="navigateToAddBook()">Agregar Libro</button>
+  </div>
+  
+  <div class="book-list">
+    <div class="book-card" *ngFor="let book of arrayLibros">
+      <img src="defaultBook.jpg" alt="Book image" class="book-cover">
+      <div class="book-info">
+        <h2>{{book.titulo}}</h2>
+        <p>Editorial: {{book.editorial}}</p>
+      </div>
+      <div class="actions">
+        <a [routerLink]="['/edit-book', book.id_libro]">
+          <button class="edit-btn">✏️</button>
+        </a>
+        <button class="delete-btn" (click)="deleteBook(book.id_libro)">🗑️</button>
+      </div>
     </div>
-</body>
-</html>
+  </div>
+  
+  <!-- Controles de paginación -->
+  <div class="pagination-controls">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{currentPage}} de {{totalPages}}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+  </div>
+  

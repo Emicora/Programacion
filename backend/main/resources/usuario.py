@@ -47,6 +47,9 @@ class Usuarios(Resource):
             if request.args.get('per_page'):
                 per_page = int(request.args.get('per_page'))
 
+        if request.args.get('rol'):
+            usuarios = usuarios.filter(UsuariosModel.rol.like('%' + request.args.get('rol') + '%'))
+
         if request.args.get('nombre'):
             usuarios = usuarios.filter(UsuariosModel.nombre.like('%' + request.args.get('nombre') + '%'))
 
