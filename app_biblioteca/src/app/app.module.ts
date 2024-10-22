@@ -29,6 +29,9 @@ import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { GoBackComponent } from './components/go-back/go-back.component';
 import { LoginnComponent } from './components/loginn/loginn.component';
+import { CreateUserComponent } from './pages/create-user/create-user.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { LoanListComponent } from './pages/loan-list/loan-list.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,10 @@ import { LoginnComponent } from './components/loginn/loginn.component';
     HomeadminComponent,
     EditProfileComponent,
     GoBackComponent,
-    LoginnComponent
+    LoginnComponent,
+    CreateUserComponent,
+    LogoutComponent,
+    LoanListComponent
   ],
   imports: [
     BrowserModule,

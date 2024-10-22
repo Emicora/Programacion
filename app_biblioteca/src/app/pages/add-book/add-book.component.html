@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +6,21 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Add a Book</h1>
+            <h1>Agregar un Libro</h1>
         </div>
         <app-go-back></app-go-back>
         
-        <form class="form-container">
-            <input type="text" placeholder="Title" class="input-field">
-            <input type="text" placeholder="Author" class="input-field">
-            <input type="text" placeholder="Editorial" class="input-field">
-            <textarea placeholder="Description" class="input-field"></textarea>
+        <form class="form-container" (ngSubmit)="onSubmit()" [formGroup]="addBookForm">
+            <input type="text" placeholder="Título" class="input-field" formControlName="titulo">
+            <input type="text" placeholder="Autor" class="input-field" formControlName="autor">
+            <input type="text" placeholder="Editorial" class="input-field" formControlName="editorial">
+            <input type="text" placeholder="ISBN" class="input-field" formControlName="isbn">
+            <input type="text" placeholder="Género" class="input-field" formControlName="genero">
+            <input type="date" placeholder="Fecha de Publicación" class="input-field" formControlName="fecha_publicacion">
+            <input type="number" placeholder="Número de Páginas" class="input-field" formControlName="num_paginas">
+            
 
-            <div class="upload-section">
-                <div class="upload-box">
-                    <img src="image_icon.png" alt="Upload image" class="upload-icon">
-                    <span class="upload-add">+</span>
-                </div>
-                <div class="upload-box">
-                    <img src="pdf_icon.png" alt="Upload PDF" class="upload-icon">
-                    <span class="upload-add">+</span>
-                </div>
-            </div>
-            <button type="submit" class="confirm-btn">Confirm</button>
+            <button type="submit" class="confirm-btn">Confirmar</button>
         </form>
-        
     </div>
 </body>
-</html>

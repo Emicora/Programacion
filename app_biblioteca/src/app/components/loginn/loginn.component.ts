@@ -17,29 +17,51 @@ export class LoginnComponent {
     private formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]], // Añadido validación de email
-      password: ['', Validators.required]
+      mail: ['', [Validators.required, Validators.email]], // Añadido validación de email
+      contrasena: ['', Validators.required]
     });
   }
 
-  irAlLogin(dataLogin: any) {
-    this.authService.login(dataLogin.email, dataLogin.password).subscribe({
-      next: (rta: any) => {
-        alert('Credenciales correctas!!!');
-        console.log('Éxito: ', rta);
-        localStorage.setItem('token', rta.access_token);
-        this.router.navigateByUrl('home');
+irAlLogin(dataLogin: any) {
+  if (this.loginForm.valid) {
+    const formData = this.loginForm.value;
+
+    this.authService.login(formData.mail, formData.contrasena).subscribe({
+      next: (response) => {
+        alert('Credenciales correctas!');
+
+        // Obtener el rol desde el AuthService
+        const role = this.authService.getRole();
+
+        // Redirigir según el rol
+        this.redirectUserByRole(role);
       },
-      error: (err: any) => {
+      error: (err) => {
         alert('Usuario o contraseña incorrecta.');
         console.log('Error: ', err);
-        localStorage.removeItem('token');
-      },
-      complete: () => {
-        console.log('Finalizó');
       }
     });
   }
+
+}
+redirectUserByRole(role: string | null) {
+  switch (role) {
+    case 'admin':
+      this.router.navigate(['/homeadmin']);  // Redirigir a la página de admin
+      break;
+    case 'user':
+      this.router.navigate(['/home']);  // Redirigir a la página de usuario
+      break;
+    case 'librarian':
+      this.router.navigate(['/homeadmin']);  // Redirigir a la página de bibliotecario
+      break;
+    default:
+      this.router.navigate(['/home']);  // Redirigir a la página de inicio o a una página predeterminada
+      break;
+  }
+}
+
+
 
   submit() {
     if (this.loginForm.valid) {

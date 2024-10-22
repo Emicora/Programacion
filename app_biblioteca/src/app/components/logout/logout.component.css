@@ -1,0 +1,21 @@
+.logout-btn {
+    background-color: #AD6666;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #6e4141;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  
+    /* Estilo para posicionar el botón en la esquina superior derecha */
+
+  }
+  
+  .logout-btn:hover {
+    background-color: #4d0a13;
+  }
+  

@@ -18,6 +18,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CreateUserComponent } from './pages/create-user/create-user.component';
+import { LoanListComponent } from './pages/loan-list/loan-list.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -41,8 +43,8 @@ const routes: Routes = [
 { path: 'edit-profile/:id', component: EditProfileComponent },
 { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 { path: '', redirectTo: '/users', pathMatch: 'full' },
-
-
+{ path: 'create-user', component: CreateUserComponent },
+{ path: 'loanList', component: LoanListComponent }
 
 
 
