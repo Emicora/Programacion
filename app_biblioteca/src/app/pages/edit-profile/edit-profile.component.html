@@ -3,7 +3,7 @@
 <div class="profile-edit-container">
   <div class="profile-card">
     <div class="profile-image">
-      <img src="assets/profile-placeholder.jpg" alt="Profile Image">
+      <img src="users.jpg" alt="Profile Image">
       <span class="edit-icon">✏️</span>
     </div>
     <h2>Edit Profile</h2>
@@ -14,12 +14,12 @@
       <label for="nombre">Nombre</label>
       <input id="nombre" formControlName="nombre" type="text">
     </div>
-
+  
     <div>
       <label for="mail">Email</label>
       <input id="mail" formControlName="mail" type="email">
     </div>
-
+  
     <div>
       <label for="rol">Rol</label>
       <select id="rol" formControlName="rol">
@@ -28,7 +28,8 @@
         <option value="librarian">Librarian</option>
       </select>
     </div>
-
+  
     <button type="submit" [disabled]="editForm.invalid" class="save-btn">Actualizar Perfil</button>
   </form>
+  
 </div>

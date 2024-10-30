@@ -76,18 +76,26 @@ export class BookService {
   // Obtener un libro por ID
   getBookById(id_libro: number): Observable<Book> {
     const headers = this.getAuthHeaders();
-    return this.http.get<Book>(`${this.apiUrl}/libros/${id_libro}`, { headers });
+    return this.http.get<Book>(`${this.apiUrl}/libro/${id_libro}`, { headers });
   }
 
   // Actualizar un libro existente
   updateBook(id_libro: number, book: Book): Observable<Book> {
     const headers = this.getAuthHeaders();
-    return this.http.put<Book>(`${this.apiUrl}/libros/${id_libro}`, book, { headers });
+    return this.http.put<Book>(`${this.apiUrl}/libro/${id_libro}`, book, { headers });
   }
 
   // Eliminar un libro
   deleteBook(id_libro: number): Observable<void> {
     const headers = this.getAuthHeaders();
-    return this.http.delete<void>(`${this.apiUrl}/libros/${id_libro}`, { headers });
+    return this.http.delete<void>(`${this.apiUrl}/libro/${id_libro}`, { headers });
   }
+
+  getBooksByLoanId(id_prestamo: number): Observable<{ libros: Book[] }> {
+    const headers = this.getAuthHeaders();
+    return this.http.get<{ libros: Book[] }>(`${this.apiUrl}/libros?id_prestamo=${id_prestamo}`, { headers });
+  }
+  
+  
+  
 }

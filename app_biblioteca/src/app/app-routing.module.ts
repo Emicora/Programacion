@@ -20,6 +20,7 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
 import { AuthGuard } from './guards/auth.guard';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { LoanListComponent } from './pages/loan-list/loan-list.component';
+import { LoanCardComponent } from './pages/loan-card/loan-card.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
 { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 { path: '', redirectTo: '/users', pathMatch: 'full' },
 { path: 'create-user', component: CreateUserComponent },
+{ path: 'loan/:id', component: LoanCardComponent },
 { path: 'loanList', component: LoanListComponent }
 
 

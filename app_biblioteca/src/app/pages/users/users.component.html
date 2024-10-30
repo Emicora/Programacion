@@ -22,10 +22,10 @@
       <p>Email: {{user.mail}}</p>
     </div>
     <div class="actions">
-      <a [routerLink]="['/edit-profile', user.id]">
-        <button class="edit-btn">✏️</button>
-      </a>
-      <button class="delete-btn" (click)="deleteUser(user.id)">🗑️</button>
+      <button class="edit-btn" (click)="goToEditProfile(user)">✏️</button>
+
+      
+      <button class="delete-btn" (click)="deleteUser(user.id_usuario)">🗑️</button>
     </div>
   </div>
 </div>

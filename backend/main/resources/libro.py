@@ -43,7 +43,7 @@ class Libros(Resource):
                 per_page = int(request.args.get('per_page'))
 
         if request.args.get('titulo'):
-            libros = libros.filter(LibrosModel.titulo.like('%' + request.args.get('titulo') + '%'))
+            libros = libros.filter(LibrosModel.titulo.like( request.args.get('titulo') + '%'))
 
         if request.args.get('editorial'):
             libros = libros.filter(LibrosModel.editorial.like('%' + request.args.get('editorial') + '%'))
@@ -56,6 +56,9 @@ class Libros(Resource):
 
         if request.args.get('id_libro'):
             libros = libros.filter(LibrosModel.id_libro == request.args.get('id_libro'))
+
+        if request.args.get('id_prestamo'):
+            libros = libros.filter(LibrosModel.id_prestamo == request.args.get('id_prestamo'))
 
         if request.args.get('sortby_num_paginas'):
             if request.args.get('sortby_num_paginas') == 'asc':
