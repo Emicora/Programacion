@@ -1,157 +1,82 @@
-/* Reset básico para margin y padding */
-html {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    margin: 0;
-    overflow-y: auto; /* Permitir desplazamiento vertical en el HTML */
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5b89d;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0; /* Asegura que no haya margen adicional */
-    min-height: 100vh; /* Solo el mínimo requerido */
-    overflow: visible; /* Permitir scroll si el contenido se desborda */
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    border-radius: 15px;
-    overflow: hidden;
-    background-color: #f5b89d;
-    position: relative;
-    flex-grow: 1;
-    max-width: 1500px; /* Limita el ancho en dispositivos grandes */
-    margin-bottom: 20px; /* Añadir margen inferior para dejar espacio */
-}
-
-header {
-    background-color: #AD6666;
-    padding: 15px;
-    text-align: left;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-
-
-.book-background {
-    position: relative;
-    height: 30%;
-    overflow: hidden;
-    margin-top: 20px; /* Ajusta según la altura del header */
-}
-
-.book-background img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-}
-
-.book-details {
-    background-color: white;
+/* Contenedor general del detalle del libro */
+.book-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap; /* Permite que el contenido se ajuste en dispositivos pequeños */
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
 }
 
+/* Imagen de portada */
 .book-cover {
-    width: 120px;
+    width: 100%;
+    max-width: 200px;
     height: auto;
+    margin-bottom: 20px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.book-info {
-    flex: 1; /* Permite que el contenedor del texto ocupe el espacio disponible */
+/* Encabezado del título */
+.book-detail-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.book-info h2 {
-    font-size: 1.4em;
-    margin-bottom: 8px;
+/* Estilos para los detalles del libro */
+.book-detail-container p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
 }
 
-.book-meta {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    color: #666;
-    flex-wrap: wrap; /* Acomoda los elementos en dispositivos pequeños */
+.book-detail-container p strong {
+    color: #333;
 }
 
-.book-meta span {
-    font-size: 0.9em;
-    background-color: #f5b89d;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.action-buttons {
-    display: flex;
-    flex-direction: column; /* Cambia a columna en lugar de fila */
-    align-items: center; /* Centra los botones */
-    padding: 20px;
-    background-color: #f5b89d;
-    position: relative;
-    opacity: 0.8;
-    margin-bottom: 20px; /* Añadir margen inferior */
-    flex-wrap: wrap; /* Permite que los botones se reacomoden en dispositivos pequeños */
-}
-
-.return-loan-btn, .get-loan-btn {
-    background-color: #e08e7e;
-    color: white;
+/* Botón de solicitar préstamo */
+.request-loan-button {
+    display: inline-block;
+    width: 100%;
     padding: 15px;
+    margin-top: 25px;
+    background-color: #8d4b47;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
     border: none;
-    border-radius: 50px;
-    font-size: 1em;
+    border-radius: 8px;
     cursor: pointer;
-    width: 80%; /* Reducir el ancho para mayor margen */
-    margin: 10px 0; /* Espaciado vertical entre botones */
+    transition: background-color 0.3s ease;
 }
 
-.return-loan-btn {
-    background-color: #535353;
+.request-loan-button:hover {
+    background-color: #633431;
 }
 
-.get-loan-btn {
-    background-color: #AD6666;
-}
-
-/* Estilos responsivos */
+/* Responsivo */
 @media (max-width: 600px) {
-    .book-details {
-        flex-direction: column; /* Cambia a columna en dispositivos móviles */
-        align-items: center; /* Centra el contenido */
-        text-align: center;
-    }
-    
-    .book-cover {
-        width: 100px; /* Ajusta el tamaño de la portada */
-        margin-bottom: 15px;
+    .book-detail-container {
+        padding: 15px;
     }
 
-    .book-meta {
-        justify-content: center; /* Centra los metadatos */
+    .book-detail-container h1 {
+        font-size: 1.8rem;
     }
 
-    .return-loan-btn, .get-loan-btn {
-        width: 100%; /* Ancho completo para botones en móviles */
+    .request-loan-button {
+        font-size: 1rem;
+        padding: 12px;
     }
 }
+
+.header {
+    text-align: center;
+    background-color: #8d4b47   ;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+  }

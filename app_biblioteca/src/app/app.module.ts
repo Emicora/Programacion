@@ -34,6 +34,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { LoanListComponent } from './pages/loan-list/loan-list.component';
 import { RouterModule } from '@angular/router';
 import { LoanCardComponent } from './pages/loan-card/loan-card.component';
+import { EditLoanComponent } from './pages/edit-loan/edit-loan.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { LoanCardComponent } from './pages/loan-card/loan-card.component';
     CreateUserComponent,
     LogoutComponent,
     LoanListComponent,
-    LoanCardComponent
+    LoanCardComponent,
+    EditLoanComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,

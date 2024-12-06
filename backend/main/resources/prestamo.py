@@ -86,7 +86,7 @@ class Prestamos(Resource):
                         'page': page
                         })
     
-    @role_required(roles=['admin'])
+    
     def post(self):
         prestamo = PrestamosModel.from_json(request.get_json())
         db.session.add(prestamo)

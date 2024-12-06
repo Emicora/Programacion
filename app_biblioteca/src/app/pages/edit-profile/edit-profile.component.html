@@ -23,10 +23,13 @@
     <div>
       <label for="rol">Rol</label>
       <select id="rol" formControlName="rol">
-        <option value="admin">Admin</option>
+        <option *ngIf="!isLibrarian" value="admin">Admin</option>
+        <option *ngIf="!isLibrarian" value="librarian">Librarian</option>
         <option value="user">User</option>
-        <option value="librarian">Librarian</option>
+        <option value="pending">Pending</option>
       </select>
+      <p *ngIf="isLibrarian && currentRole !== 'pending'" class="error-message">
+      </p>
     </div>
   
     <button type="submit" [disabled]="editForm.invalid" class="save-btn">Actualizar Perfil</button>

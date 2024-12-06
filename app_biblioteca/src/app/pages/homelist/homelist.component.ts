@@ -6,6 +6,8 @@ interface Loan {
   id_prestamo: number;
   fecha_prestamo: string;
   fecha_devolucion: string;
+  id_usuario: number;
+  id_libro: number;
 }
 
 @Component({
@@ -41,7 +43,13 @@ export class HomelistComponent implements OnInit {
 
     this.loanService.getUserLoans(id, this.currentPage, this.perPage).subscribe({
       next: (response) => {
-        this.userLoans = response.prestamos;
+        this.userLoans = response.prestamos.map((prestamo: any) => ({
+          id_prestamo: prestamo.id_prestamo,
+          fecha_prestamo: prestamo.fecha_prestamo,
+          fecha_devolucion: prestamo.fecha_devolucion,
+          id_usuario: prestamo.id_usuario,
+          id_libro: prestamo.id_libro
+        }));
         this.totalPages = response.pages;
       },
       error: (error) => {
@@ -56,20 +64,47 @@ export class HomelistComponent implements OnInit {
   }
 
   // Cancelar préstamo
-  cancelLoan(loanId: number, event: Event): void {
+  cancelLoan(loanId: number, bookId: number, event: Event): void {
     event.stopPropagation(); // Evitar que se active selectLoan
-    this.loanService.cancelLoan(loanId).subscribe({
-      next: () => {
-        this.userLoans = this.userLoans.filter(loan => loan.id_prestamo !== loanId);
-        if (this.selectedLoanId === loanId) {
-          this.selectedLoanId = null; // Cierra el loan-card si se cancela el préstamo seleccionado
-        }
+  
+    // Obtener detalles del libro asociado al préstamo
+    this.loanService.getBookById(bookId).subscribe({
+      next: (book) => {
+        const updatedDisponibles = book.disponibles + 1;
+  
+        // Eliminar el préstamo
+        this.loanService.cancelLoan(loanId).subscribe({
+          next: () => {
+            // Actualizar disponibilidad del libro
+            this.loanService.updateBookAvailability(bookId, { disponibles: updatedDisponibles }).subscribe({
+              next: () => {
+                console.log('Disponibilidad del libro actualizada exitosamente.');
+              },
+              error: (error) => {
+                console.error('Error al actualizar la disponibilidad del libro:', error);
+              }
+            });
+  
+            // Filtrar el préstamo eliminado del frontend
+            this.userLoans = this.userLoans.filter(loan => loan.id_prestamo !== loanId);
+            if (this.selectedLoanId === loanId) {
+              this.selectedLoanId = null; // Cierra el loan-card si se cancela el préstamo seleccionado
+            }
+            alert('Préstamo cancelado y disponibilidad del libro actualizada.');
+          },
+          error: (error) => {
+            console.error('Error al cancelar el préstamo:', error);
+            alert('Error al cancelar el préstamo.');
+          }
+        });
       },
       error: (error) => {
-        console.error("Error al cancelar el préstamo:", error);
+        console.error('Error al obtener los detalles del libro:', error);
+        alert('No se pudo obtener los detalles del libro asociado al préstamo.');
       }
     });
   }
+  
 
   // Paginación
   previousPage(): void {

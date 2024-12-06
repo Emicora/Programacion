@@ -19,7 +19,7 @@ class Libro(Resource):
         db.session.commit()
         return '', 204
 
-    @role_required(roles=['admin'])
+   
     def put(self, id):
         libro = db.session.query(LibrosModel).get_or_404(id)
         data = request.get_json().items()
@@ -30,20 +30,25 @@ class Libro(Resource):
         return libro.to_json(), 201
 
 
-class Libros(Resource):
+
  
+class Libros(Resource):
     def get(self):
         page = 1
         per_page = 10
         libros = db.session.query(LibrosModel)
+        
         if request.args:
             if request.args.get('page'):
                 page = int(request.args.get('page'))
             if request.args.get('per_page'):
                 per_page = int(request.args.get('per_page'))
 
+        # Filtro por `disponibles > 0`
+        libros = libros.filter(LibrosModel.disponibles > 0)
+
         if request.args.get('titulo'):
-            libros = libros.filter(LibrosModel.titulo.like( request.args.get('titulo') + '%'))
+            libros = libros.filter(LibrosModel.titulo.like(request.args.get('titulo') + '%'))
 
         if request.args.get('editorial'):
             libros = libros.filter(LibrosModel.editorial.like('%' + request.args.get('editorial') + '%'))
@@ -98,6 +103,7 @@ class Libros(Resource):
             'pages': libros.pages,
             'page': page
         })
+
     
     @role_required(roles=['admin'])
     def post(self):

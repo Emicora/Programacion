@@ -22,12 +22,18 @@ export class AuthService {
   login(mail: string, contrasena: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/auth/login`, { mail, contrasena }).pipe(
       tap(response => {
-        // Almacenar el token y el ID en localStorage
+        // Almacenar el token, el ID y el rol en localStorage
         localStorage.setItem('token', response.access_token);
         localStorage.setItem('id', response.id); // Almacena el ID del usuario
+        if (response.rol) {
+          localStorage.setItem('rol', response.rol); // Almacena el rol del usuario
+        } else {
+          console.error('El rol no está disponible en la respuesta del servidor');
+        }
       })
     );
   }
+  
 
   // Obtener el token de autenticación desde localStorage
   getToken(): string | null {

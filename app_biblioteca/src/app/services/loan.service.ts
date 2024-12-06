@@ -2,11 +2,27 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
+interface Book {
+  id_libro: number;
+  titulo: string;
+  editorial: string;
+  fecha_publicacion: string;
+  num_paginas: number;
+  isbn: string;
+  genero: string;
+  disponibles: number;
+  autor: string;
+}
+
+
+
 interface Loan {
-  id_prestamo: number;
   fecha_prestamo: string;
   fecha_devolucion: string;
   id_usuario: number;
+  id_prestamo: number;
+  id_libro: number;
 }
 
 interface LoanResponse {
@@ -39,9 +55,9 @@ export class LoanService {
   }
 
   // Agregar un préstamo
-  addLoan(loan: Loan): Observable<Loan> {
+  addLoan(loan: any): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.post<Loan>(`${this.apiUrl}/prestamos`, loan, { headers });
+    return this.http.post<any>(`${this.apiUrl}/prestamos`, loan, { headers });
   }
 
   // Modificar un préstamo existente
@@ -61,4 +77,37 @@ export class LoanService {
     const headers = this.getAuthHeaders();
     return this.http.get<Loan>(`${this.apiUrl}/prestamo/${id_prestamo}`, { headers });
   }
+
+  getBookById(bookId: number): Observable<Book> {
+    const headers = this.getAuthHeaders();
+    return this.http.get<Book>(`${this.apiUrl}/libro/${bookId}`, { headers });
+  }
+
+  updateBookAvailability(bookId: number, updatedBook: Partial<Book>): Observable<Book> {
+    const headers = this.getAuthHeaders();
+    return this.http.put<Book>(`${this.apiUrl}/libro/${bookId}`, updatedBook, { headers });
+  }
+  
+  
+
+  getLoans(
+    page: number = 1,
+    per_page: number = 10,
+    fecha_prestamo: string = '',
+    fecha_devolucion: string = '',
+    id_usuario: string = '',
+    id_libro: string = ''
+  ): Observable<LoanResponse> {
+    const headers = this.getAuthHeaders();
+  
+    // Crear parámetros opcionales si existen
+    let params = `page=${page}&per_page=${per_page}`;
+    if (fecha_prestamo) params += `&fecha_prestamo=${fecha_prestamo}`;
+    if (fecha_devolucion) params += `&fecha_devolucion=${fecha_devolucion}`;
+    if (id_usuario) params += `&id_usuario=${id_usuario}`;
+    if (id_libro) params += `&id_libro=${id_libro}`;
+  
+    return this.http.get<LoanResponse>(`${this.apiUrl}/prestamos?${params}`, { headers });
+  }
+  
 }

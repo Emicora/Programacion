@@ -1,83 +1,119 @@
+/* Estilo general del contenedor */
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #F9B185;
 }
 
 header {
   background-color: #AD6666;
   padding: 15px;
   text-align: center;
-  position: relative;
   width: 100%;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .loan-list {
-  flex: 1;
-  overflow-y: auto;
-  padding: 10px 15px;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px 0;
 }
 
 .loan-item {
   display: flex;
   align-items: center;
-  padding: 10px;
   background-color: white;
   border-radius: 8px;
   margin-bottom: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
 .loan-item:hover {
   transform: scale(1.02);
 }
 
-.loan-item img {
+.loan-image {
   width: 100px;
   height: 130px;
   border-radius: 8px;
   object-fit: cover;
-}
-
-.loan-details {
-  margin-left: 15px;
-  flex: 1;
+  margin-right: 15px;
 }
 
 .loan-details h2 {
   font-size: 1.2em;
-  margin-bottom: 8px;
+  margin: 0;
 }
 
 .loan-details p {
-  font-size: 1em;
-  margin-bottom: 4px;
+  font-size: 0.9em;
   color: #666;
+  margin: 5px 0;
 }
 
-.bottom-nav {
-  background-color: #AD6666;
-  padding: 10px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
-
-.cancel-btn {
-  background-color: #d9534f; /* Rojo claro */
-  color: white;
+.view-details-button,
+.cancel-button {
+  padding: 10px 15px;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9em;
+  margin: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-details-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.view-details-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+/* Paginación */
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #AD6666;
+  color: white;
+  font-size: 1em;
   transition: background-color 0.3s ease;
 }
 
-.cancel-btn:hover {
-  background-color: #c9302c; /* Rojo más oscuro al pasar el cursor */
+.pagination-controls button:hover {
+  background-color: #8c4d4d;
+}
+
+.pagination-controls span {
+  font-size: 1em;
+  color: #333;
 }

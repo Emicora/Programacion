@@ -4,14 +4,47 @@
     <div id="central">
       <div id="login">
         <div class="titulo">Crear Cuenta</div>
-        <form id="registroform">
-          <input type="text" name="usuario" placeholder="Usuario" required>
-          <input type="email" name="email" placeholder="Correo Electrónico" required>
-          <input type="password" name="password" placeholder="Contraseña" required>
-          <button type="submit" title="Registrarse" routerLink="/login" name="Registrarse">Registrarse</button>
+        <form id="registroform" (submit)="onRegister($event)">
+          <!-- Campo de nombre -->
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre"
+            [(ngModel)]="nombre"
+            required
+          />
+
+          <!-- Campo de correo -->
+          <input
+            type="email"
+            name="mail"
+            placeholder="Correo Electrónico"
+            [(ngModel)]="mail"
+            required
+          />
+
+          <!-- Campo de contraseña -->
+          <input
+            type="password"
+            name="contrasena"
+            placeholder="Contraseña"
+            [(ngModel)]="contrasena"
+            required
+          />
+
+          <!-- Botón de registro deshabilitado si los campos no están completos -->
+          <button
+            type="submit"
+            title="Registrarse"
+            name="Registrarse"
+            [disabled]="!nombre || !mail || !contrasena"
+          >
+            Registrarse
+          </button>
         </form>
+
         <div class="pie-form">
-          <a routerLink="/login">¿Ya tienes cuenta? Inicia sesión</a>
+          <a routerLink="/admin">¿Ya tienes cuenta? Inicia sesión</a>
         </div>
       </div>
     </div>

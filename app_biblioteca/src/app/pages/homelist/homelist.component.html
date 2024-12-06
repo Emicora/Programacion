@@ -22,7 +22,7 @@
         <p>Fecha de Finalización: {{ loan.fecha_devolucion | date }}</p>
       </div>
       <button class="view-details-button" (click)="viewLoanDetails(loan.id_prestamo)">Ver Detalles</button>
-      <button class="cancel-button" (click)="cancelLoan(loan.id_prestamo, $event)">Cancelar Préstamo</button>
+      <button class="cancel-button" (click)="cancelLoan(loan.id_prestamo, loan.id_libro ,$event)">Cancelar Préstamo</button>
     </div>
   </div>
   

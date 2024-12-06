@@ -23,7 +23,7 @@ class Usuario(Resource):
         db.session.commit()
         return usuario.to_json(), 204
 
-    @role_required(roles=['admin','user'])
+    
     def put(self, id):
         usuario = db.session.query(UsuariosModel).get_or_404(id)
         data = request.get_json().items()
@@ -36,7 +36,7 @@ class Usuario(Resource):
 
 class Usuarios(Resource):
 
-    @role_required(['admin'])
+    @role_required(['admin','librarian'])
     def get(self):
         page = 1
         per_page = 10

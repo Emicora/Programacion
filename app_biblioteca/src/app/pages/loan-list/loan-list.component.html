@@ -1,1 +1,39 @@
-<p>loan-list works!</p>
+<div class="loans-container">
+    <div class="search-container">
+      <input [(ngModel)]="searchCriteria.fecha_prestamo" placeholder="Buscar por Fecha de Préstamo" class="search-bar" />
+      <input [(ngModel)]="searchCriteria.fecha_devolucion" placeholder="Buscar por Fecha de Devolución" class="search-bar" />
+      <button (click)="onSearchClick()" class="search-button">Buscar</button>
+    </div>
+  
+    <div class="header">
+      <app-go-back></app-go-back>
+      <h1>Préstamos</h1>
+    </div>
+  
+    <div class="loan-list">
+      <div *ngIf="arrayPrestamos.length === 0" class="no-loans-message">
+        <p>No hay préstamos disponibles.</p>
+      </div>
+      <div class="loan-card" *ngFor="let loan of arrayPrestamos">
+        <div class="loan-info">
+          <h2>Préstamo ID: {{ loan.id_prestamo }}</h2>
+          <p><strong>Usuario ID:</strong> {{ loan.id_usuario }}</p>
+          <p><strong>Fecha Préstamo:</strong> {{ loan.fecha_prestamo | date }}</p>
+          <p><strong>Fecha Devolución:</strong> {{ loan.fecha_devolucion | date }}</p>
+        </div>
+        <div class="actions">
+          <button class="edit-btn" (click)="goToEditLoan(loan.id_prestamo)">✏️ Editar</button>
+          <button class="delete-btn" (click)="deleteLoan(loan.id_prestamo, loan.id_libro)">🗑️ Eliminar</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="pagination-controls">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+    </div>
+  </div>
+  <app-nav></app-nav>
+
+  

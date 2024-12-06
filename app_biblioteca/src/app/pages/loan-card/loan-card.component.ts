@@ -4,9 +4,11 @@ import { LoanService } from '../../services/loan.service';
 import { BookService } from '../../services/book.service';
 
 interface Loan {
-  id_prestamo: number;
+  id_prestamo?: number;
+  id_usuario: number;
   fecha_prestamo: string;
   fecha_devolucion: string;
+  id_libro: number;
 }
 
 interface Book {
@@ -17,7 +19,6 @@ interface Book {
   num_paginas: number;
   isbn: string;
   genero: string;
-  id_prestamo?: number;
 }
 
 @Component({
@@ -27,9 +28,7 @@ interface Book {
 })
 export class LoanCardComponent implements OnInit {
   loan: Loan | null = null;
-  
-
-  associatedBook: Book[] = [];
+  associatedBook: Book | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,25 +46,22 @@ export class LoanCardComponent implements OnInit {
     this.loanService.getLoanById(loanId).subscribe({
       next: (loan) => {
         this.loan = loan;
-        // Cargar el libro relacionado con este préstamo
-        this.loadAssociatedBook(loanId);
+        // Cargar el libro relacionado con este préstamo usando `id_libro`
+        if (loan.id_libro) {
+          this.loadAssociatedBook(loan.id_libro);
+        }
       },
       error: (error) => console.error('Error al cargar el préstamo:', error)
     });
   }
 
-  loadAssociatedBook(loanId: number): void {
-    this.bookService.getBooksByLoanId(loanId).subscribe({
-      next: (response) => {
-        this.associatedBook = response.libros;
-        console.log("Libros asociados cargados:", this.associatedBook);
+  loadAssociatedBook(bookId: number): void {
+    this.bookService.getBookById(bookId).subscribe({
+      next: (book) => {
+        this.associatedBook = book;
+        console.log("Libro asociado cargado:", this.associatedBook);
       },
       error: (error) => console.error("Error al cargar el libro asociado:", error)
     });
   }
-  
-  
-  
-  
-  
 }

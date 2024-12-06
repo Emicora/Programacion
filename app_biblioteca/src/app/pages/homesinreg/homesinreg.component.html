@@ -1,47 +1,44 @@
-<app-search></app-search>
+
 
         <button  class="login-button" routerLink="/admin" href="#">Log In</button> <!-- Botón Log In -->
         
 <!-- Aquí irán las secciones de contenido -->
     <!-- Sección de categorías y libros -->
-<section class="book-section">
+    <section class="book-section">
 
-    <div class="book-grid">
-        <!-- Libros con sus portadas -->
-        <div class="book-item">
-            <a routerLink="/bookdetail" href="#">
-                <img src="gabriel-garcia.jpg" alt="Cien años de soledad" class="book-cover">
-            </a>
-            <a routerLink="/bookdetail" href="#">Cien años de soledad</a>
+
+      <div class="search-container">
+        <div class="search-fields">
+          <input [(ngModel)]="searchCriteria.titulo" placeholder="Buscar por título" class="search-bar" />
+          <input [(ngModel)]="searchCriteria.editorial" placeholder="Buscar por editorial" class="search-bar" />
+          <input [(ngModel)]="searchCriteria.isbn" placeholder="Buscar por ISBN" class="search-bar" />
         </div>
-        <div class="book-item">
-            <a href="">
-                <img src="harry-potter.jpg" alt="Harry Potter" class="book-cover">
-            </a>
-            <a href="">Harry Potter</a>
-        </div>
-        <div class="book-item">
-            <a href=""><img src="ana-frank.jpg" class="book-cover">
-            </a>
-            <a href="">El Diario de Ana Frank</a>
-        </div>
-        <div class="book-item">
-            <a href="">
-                <img src="historias-de-edad.jpg" alt="Historias de Edad" class="book-cover">
-            </a>
-            <a href="">Historias de Edad</a>
-        </div>
-        <div class="book-item">
-            <a href="">
-                <img src="dracula.jpg" alt="Drácula" class="book-cover">
-            </a>
-            <a href="">Drácula</a>
-        </div>
-        <div class="book-item">
-            <a href="">
-                <img src="el-amor.jpg" alt="El amor en los tiempos del cólera" class="book-cover">
-            </a>
-            <a href="">El amor en los tiempos del cólera</a>
-        </div>
-    </div>
-</section>
+        
+        <button (click)="onSearchClick()" class="search-button">Buscar</button>
+      </div>
+        <div class="header">
+            <h1>Libros Disponibles</h1>
+          </div>
+          
+    
+          
+          <div class="book-list">
+            <div class="book-card" *ngFor="let book of arrayLibros" (click)="viewBookDetails(book.id_libro)">
+              <img src="defaultBook.jpg" alt="Book image" class="book-cover">
+              <div class="book-info">
+                <h2>{{book.titulo}}</h2>
+                <p>Editorial: {{book.editorial}}</p>
+                <p>Autor: {{book.autor}}</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Paginación -->
+          <div class="pagination-controls">
+            <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+            <span>Página {{currentPage}} de {{totalPages}}</span>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+          </div>
+          
+        
+    </section>

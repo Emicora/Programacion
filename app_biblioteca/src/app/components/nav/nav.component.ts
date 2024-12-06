@@ -26,8 +26,12 @@ export class NavComponent implements OnInit {
     } else {
       console.error('No role found for the user');
       // Opcional: Redirigir a una página de acceso denegado o de inicio de sesión
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }
+  }
+
+  isPending(): boolean {
+    return this.userRole === 'pending';
   }
 
   isUser(): boolean {

@@ -1,0 +1,42 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar un Libro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Editar un Libro</h1>
+        </div>
+        <app-go-back></app-go-back>
+        
+        <form class="form-container" (ngSubmit)="onSubmit()" [formGroup]="editBookForm">
+            <label for="titulo">Título</label>
+            <input id="titulo" type="text" placeholder="Título" class="input-field" formControlName="titulo">
+
+            <label for="autor">Autor</label>
+            <input id="autor" type="text" placeholder="Autor" class="input-field" formControlName="autor">
+
+            <label for="editorial">Editorial</label>
+            <input id="editorial" type="text" placeholder="Editorial" class="input-field" formControlName="editorial">
+
+            <label for="isbn">ISBN</label>
+            <input id="isbn" type="text" placeholder="ISBN" class="input-field" formControlName="isbn">
+
+            <label for="genero">Género</label>
+            <input id="genero" type="text" placeholder="Género" class="input-field" formControlName="genero">
+
+            <label for="fecha_publicacion">Fecha de Publicación</label>
+            <input id="fecha_publicacion" type="date" placeholder="Fecha de Publicación" class="input-field" formControlName="fecha_publicacion">
+
+            <label for="num_paginas">Número de Páginas</label>
+            <input id="num_paginas" type="number" placeholder="Número de Páginas" class="input-field" formControlName="num_paginas">
+
+            <label for="disponibles">Cantidad Disponibles</label>
+            <input id="disponibles" type="number" placeholder="Cantidad Disponibles" class="input-field" formControlName="disponibles">
+
+            <button type="submit" class="confirm-btn">Guardar Cambios</button>
+        </form>
+    </div>
+</body>
+

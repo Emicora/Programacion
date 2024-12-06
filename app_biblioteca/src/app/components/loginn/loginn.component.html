@@ -1,7 +1,7 @@
 <div class="form-container">
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
         <div>
-            <label for="mail">Email</label>
+            <label for="mail">Correo Electronico</label>
             <input id="mail" formControlName="mail" type="mail">
             <div *ngIf="loginForm.get('mail')?.invalid && loginForm.get('mail')?.touched">
                 <small>Email inválido</small>
@@ -9,7 +9,7 @@
         </div>
 
         <div>
-            <label for="contrasena">Password</label>
+            <label for="contrasena">Contraseña</label>
             <input id="contrasena" formControlName="contrasena" type="password">
             <div *ngIf="loginForm.get('contrasena')?.invalid && loginForm.get('contrasena')?.touched">
                 <small>La contraseña es requerida</small>
@@ -19,8 +19,8 @@
         <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
 
         <div class="text-below-buttons">
-            <button class="below-text" routerLink="/registro">Sign Up</button>
-            <button class="below-text" routerLink="/reset">Forgot Password</button>
+            <button class="below-text" routerLink="/registro">Registrarse</button>
+            
         </div>
     </form>
 </div>

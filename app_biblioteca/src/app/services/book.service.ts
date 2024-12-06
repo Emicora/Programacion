@@ -10,6 +10,8 @@ interface Book {
   num_paginas: number;
   isbn: string;
   genero: string;
+  disponibles: number;
+  autor: string;
 }
 
 interface BookResponse {
@@ -45,6 +47,16 @@ export class BookService {
     const headers = this.getAuthHeaders();
     return this.http.get<BookResponse>(`${this.apiUrl}/libros?page=${page}&per_page=${perPage}`, { headers });
   }
+
+  getBookss(page: number, perPage: number, titulo?: string, editorial?: string, isbn?: string): Observable<any> {
+    const params: any = { page, per_page: perPage };
+    if (titulo) params.titulo = titulo;
+    if (editorial) params.editorial = editorial;
+    if (isbn) params.isbn = isbn;
+  
+    return this.http.get<any>(`${this.apiUrl}/libros`, { params });
+  }
+  
 
   // Buscar libros por criterios de búsqueda
   searchBooks(searchCriteria: any, page: number = 1, perPage: number = 10): Observable<BookResponse> {
@@ -90,12 +102,10 @@ export class BookService {
     const headers = this.getAuthHeaders();
     return this.http.delete<void>(`${this.apiUrl}/libro/${id_libro}`, { headers });
   }
-
-  getBooksByLoanId(id_prestamo: number): Observable<{ libros: Book[] }> {
-    const headers = this.getAuthHeaders();
-    return this.http.get<{ libros: Book[] }>(`${this.apiUrl}/libros?id_prestamo=${id_prestamo}`, { headers });
-  }
   
+  updateBookAvailability(bookId: number, updatedBook: Partial<Book>): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/libro/${bookId}`, updatedBook);
+  }
   
   
 }

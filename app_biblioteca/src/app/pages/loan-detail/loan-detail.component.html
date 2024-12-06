@@ -1,32 +1,30 @@
-
 <body>
     <div class="container">
         <div class="loan-detail">
             <header>
-                <button class="back-btn" onclick="history.back()">&#10094;</button>
+                <app-go-back></app-go-back>
                 <h1>Loan Detail</h1>
             </header>
             <div class="book-info">
-                <img src="cien-anos.jpg" alt="Cien años de soledad">
-                <h2>Cien años de soledad</h2>
+                <img src= portada.jpg alt="{{ book?.titulo }}" class="book-cover">
+                <h2>{{ book?.titulo }}</h2>
                 <div class="book-meta">
-                    <span>📅 2021</span>
-                    <span>📖 342 Pages</span>
-                    <span>🎥 Action</span>
+                    <span>📅 {{ book?.fecha_publicacion }}</span>
+                    <span>📖 {{ book?.num_paginas }} Pages</span>
+                    <span>📚 {{ book?.genero }}</span>
                 </div>
             </div>
             <div class="loan-dates">
                 <div class="date-picker">
                     <label for="start-date">Start Date:</label>
-                    <input type="date" id="start-date">
+                    <input type="date" id="start-date" [(ngModel)]="startDate">
                 </div>
                 <div class="date-picker">
                     <label for="end-date">End Date:</label>
-                    <input type="date" id="end-date">
+                    <input type="date" id="end-date" [(ngModel)]="endDate">
                 </div>
             </div>
-            <button class="get-loan">Get Loan</button>
+            <button class="get-loan" (click)="requestLoan()">Get Loan</button>
         </div>
     </div>
 </body>
-

@@ -21,36 +21,34 @@ import { AuthGuard } from './guards/auth.guard';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { LoanListComponent } from './pages/loan-list/loan-list.component';
 import { LoanCardComponent } from './pages/loan-card/loan-card.component';
+import { EditLoanComponent } from './pages/edit-loan/edit-loan.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
+
 
 const routes: Routes = [
-{path: 'home', component: HomeComponent},
-{path: 'homeadmin', component: HomeadminComponent},
-{path: 'homesinreg', component: HomesinregComponent},
-{path: '', redirectTo: 'homesinreg', pathMatch: 'full'},
-{path: 'bookdetail', component: BookdetailComponent},
-{path: 'homelist', component: HomelistComponent},
-{path: 'loandetail', component: LoanDetailComponent},
-{path: 'profile', component: ProfileComponent},
-{path: 'users', component: UsersComponent},
-{path: 'books', component: BookComponent},
-{path: 'add-book', component: AddBookComponent},
-{path: 'login', component: LoginComponent},
-{path: 'admin', component: AdminComponent},
-{path: 'librarian', component: LibrarianComponent},
-{path: 'userlogin', component: UserloginComponent},
-{path: 'registro', component: RegistroComponent},
-{path: 'reset', component: ResetPasswordComponent},
-{ path: 'users', component: UsersComponent },
-{ path: 'edit-profile/:id', component: EditProfileComponent },
-{ path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-{ path: '', redirectTo: '/users', pathMatch: 'full' },
-{ path: 'create-user', component: CreateUserComponent },
-{ path: 'loan/:id', component: LoanCardComponent },
-{ path: 'loanList', component: LoanListComponent }
-
-
-
-
+  { path: 'homesinreg', component: HomesinregComponent }, // Accesible sin token
+  { path: 'bookdetail/:id', component: BookdetailComponent }, // Accesible sin token
+  { path: 'admin', component: AdminComponent},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Requiere token
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian', 'user'] }},
+  { path: 'homeadmin', component: HomeadminComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian'] } },
+  { path: 'homelist', component: HomelistComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian', 'user'] } },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian'] } },
+  { path: 'books', component: BookComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian'] } },
+  { path: 'add-book', component: AddBookComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian'] } },
+  { path: 'edit-profile/:id', component: EditProfileComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian'] } },
+  { path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian'] } },
+  { path: 'edit-book/:id', component: EditBookComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'librarian'] } },
+  
+  // Rutas por defecto o sin rol específico
+  { path: 'loandetail/:id', component: LoanDetailComponent, canActivate: [AuthGuard] },
+  { path: 'loan/:id', component: LoanCardComponent, canActivate: [AuthGuard] },
+  { path: 'loanList', component: LoanListComponent, canActivate: [AuthGuard] },
+  { path: 'editLoan/:id', component: EditLoanComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'reset', component: ResetPasswordComponent },
+  { path: '', redirectTo: '/homesinreg', pathMatch: 'full' },
 ];
 
 @NgModule({

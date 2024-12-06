@@ -1,0 +1,24 @@
+<app-go-back></app-go-back>
+
+<div class="loan-edit-container">
+  <h2>Editar Préstamo</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="id_usuario">Usuario ID</label>
+      <input id="id_usuario" formControlName="id_usuario" type="number" readonly>
+    </div>
+    <div>
+      <label for="fecha_prestamo">Fecha Préstamo</label>
+      <input id="fecha_prestamo" formControlName="fecha_prestamo" type="date">
+    </div>
+    <div>
+      <label for="fecha_devolucion">Fecha Devolución</label>
+      <input id="fecha_devolucion" formControlName="fecha_devolucion" type="date">
+    </div>
+    <div>
+      <label for="id_libro">Libro ID</label>
+      <input id="id_libro" formControlName="id_libro" type="number">
+    </div>
+    <button type="submit" [disabled]="editForm.invalid" class="save-btn">Guardar Cambios</button>
+  </form>
+</div>
