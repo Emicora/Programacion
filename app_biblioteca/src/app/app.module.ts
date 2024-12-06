@@ -32,6 +32,10 @@ import { LoginnComponent } from './components/loginn/loginn.component';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { LoanListComponent } from './pages/loan-list/loan-list.component';
+import { RouterModule } from '@angular/router';
+import { LoanCardComponent } from './pages/loan-card/loan-card.component';
+import { EditLoanComponent } from './pages/edit-loan/edit-loan.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -61,14 +65,18 @@ import { LoanListComponent } from './pages/loan-list/loan-list.component';
     LoginnComponent,
     CreateUserComponent,
     LogoutComponent,
-    LoanListComponent
+    LoanListComponent,
+    LoanCardComponent,
+    EditLoanComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

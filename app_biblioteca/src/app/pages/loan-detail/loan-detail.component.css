@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #AD6666;
+    background-color: #8d4b47;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +100,7 @@ h1 {
 .get-loan {
     width: 100%;
     padding: 20px; /* Aumentado */
-    background-color: #c17d7d;
+    background-color: #8d4b47;
     color: white;
     border: none;
     border-radius: 10px;
@@ -109,7 +109,7 @@ h1 {
 }
 
 .get-loan:hover {
-    background-color: #a96464;
+    background-color: #61322f;
 }
 
 /* Responsive Design */

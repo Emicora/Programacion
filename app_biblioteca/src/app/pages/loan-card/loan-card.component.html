@@ -1,0 +1,28 @@
+<app-go-back></app-go-back>
+<div class="loan-details-container">
+  <h2>Detalles del Préstamo</h2>
+
+  <!-- Detalles del préstamo -->
+  <div class="loan-info">
+    <p><strong>Préstamo ID:</strong> {{ loan?.id_prestamo }}</p>
+    <p><strong>Fecha de Préstamo:</strong> {{ loan?.fecha_prestamo | date }}</p>
+    <p><strong>Fecha de Devolución:</strong> {{ loan?.fecha_devolucion | date }}</p>
+  </div>
+
+  <h3>Libro Asociado al Préstamo</h3>
+
+  <!-- Libro asociado -->
+  <div *ngIf="associatedBook; else noBook" class="book-details">
+    <h4>{{ associatedBook.titulo }}</h4>
+    <p><strong>Editorial:</strong> {{ associatedBook.editorial }}</p>
+    <p><strong>Fecha de Publicación:</strong> {{ associatedBook.fecha_publicacion | date }}</p>
+    <p><strong>Número de Páginas:</strong> {{ associatedBook.num_paginas }}</p>
+    <p><strong>ISBN:</strong> {{ associatedBook.isbn }}</p>
+    <p><strong>Género:</strong> {{ associatedBook.genero }}</p>
+  </div>
+
+  <!-- Mensaje si no hay libro asociado -->
+  <ng-template #noBook>
+    <p>No hay libro asociado a este préstamo.</p>
+  </ng-template>
+</div>

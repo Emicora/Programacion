@@ -10,6 +10,8 @@ interface Book {
   num_paginas: number;
   isbn: string;
   genero: string;
+  disponibles: number;
+  autor: string;
 }
 
 @Component({

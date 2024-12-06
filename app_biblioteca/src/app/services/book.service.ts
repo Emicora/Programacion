@@ -10,6 +10,8 @@ interface Book {
   num_paginas: number;
   isbn: string;
   genero: string;
+  disponibles: number;
+  autor: string;
 }
 
 interface BookResponse {
@@ -46,6 +48,16 @@ export class BookService {
     return this.http.get<BookResponse>(`${this.apiUrl}/libros?page=${page}&per_page=${perPage}`, { headers });
   }
 
+  getBookss(page: number, perPage: number, titulo?: string, editorial?: string, isbn?: string): Observable<any> {
+    const params: any = { page, per_page: perPage };
+    if (titulo) params.titulo = titulo;
+    if (editorial) params.editorial = editorial;
+    if (isbn) params.isbn = isbn;
+  
+    return this.http.get<any>(`${this.apiUrl}/libros`, { params });
+  }
+  
+
   // Buscar libros por criterios de búsqueda
   searchBooks(searchCriteria: any, page: number = 1, perPage: number = 10): Observable<BookResponse> {
     const headers = this.getAuthHeaders();
@@ -76,18 +88,24 @@ export class BookService {
   // Obtener un libro por ID
   getBookById(id_libro: number): Observable<Book> {
     const headers = this.getAuthHeaders();
-    return this.http.get<Book>(`${this.apiUrl}/libros/${id_libro}`, { headers });
+    return this.http.get<Book>(`${this.apiUrl}/libro/${id_libro}`, { headers });
   }
 
   // Actualizar un libro existente
   updateBook(id_libro: number, book: Book): Observable<Book> {
     const headers = this.getAuthHeaders();
-    return this.http.put<Book>(`${this.apiUrl}/libros/${id_libro}`, book, { headers });
+    return this.http.put<Book>(`${this.apiUrl}/libro/${id_libro}`, book, { headers });
   }
 
   // Eliminar un libro
   deleteBook(id_libro: number): Observable<void> {
     const headers = this.getAuthHeaders();
-    return this.http.delete<void>(`${this.apiUrl}/libros/${id_libro}`, { headers });
+    return this.http.delete<void>(`${this.apiUrl}/libro/${id_libro}`, { headers });
   }
+  
+  updateBookAvailability(bookId: number, updatedBook: Partial<Book>): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/libro/${bookId}`, updatedBook);
+  }
+  
+  
 }

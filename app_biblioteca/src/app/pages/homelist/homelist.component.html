@@ -1,28 +1,38 @@
+<div class="container">
+  <header>
+    <app-go-back></app-go-back>
+    <h1>Mis Préstamos</h1>
+  </header>
 
-
-    <div class="container">
-        <header>
-            <app-go-back></app-go-back>
-            <h1>Loan list</h1>
-        </header>
-        <div class="loan-list">
-            <div class="loan-item">
-                <img src="padre-rico.jpg" alt="Padre Rico Padre Pobre">
-                <div class="loan-details">
-                    <h2>Padre Rico Padre Pobre</h2>
-                    <p><span class="rating">★ 9.5</span> | Action</p>
-                    <p>2019 | 816 Pages</p>
-                </div>
-            </div>
-            <div class="loan-item">
-                <img src="ley-hombre.jpg" alt="La ley del más Hombre">
-                <div class="loan-details">
-                    <h2>La ley del más Hombre</h2>
-                    <p><span class="rating">★ 8.5</span> | Action</p>
-                    <p>2021 | 342 Pages</p>
-                </div>
-            </div>
-        </div>
-        <app-nav></app-nav>
+  <div class="loan-list">
+    <div *ngIf="userLoans.length === 0">
+      <p>No tienes préstamos activos.</p>
     </div>
 
+  <!-- Detalle del préstamo seleccionado -->
+  <div class="loan-list">
+    <div *ngIf="userLoans.length === 0">
+      <p>No tienes préstamos activos.</p>
+    </div>
+    <div *ngFor="let loan of userLoans" class="loan-item">
+      <img src="prestamo.jpg" alt="Loan Image" class="loan-image">
+      <div class="loan-details">
+        <h2>Préstamo ID: {{ loan.id_prestamo }}</h2>
+        <p>Fecha de Inicio: {{ loan.fecha_prestamo | date }}</p>
+        <p>Fecha de Finalización: {{ loan.fecha_devolucion | date }}</p>
+      </div>
+      <button class="view-details-button" (click)="viewLoanDetails(loan.id_prestamo)">Ver Detalles</button>
+      <button class="cancel-button" (click)="cancelLoan(loan.id_prestamo, loan.id_libro ,$event)">Cancelar Préstamo</button>
+    </div>
+  </div>
+  
+
+  <!-- Paginación -->
+  <div class="pagination-controls" *ngIf="totalPages > 1">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+  </div>
+
+  <app-nav></app-nav>
+</div>

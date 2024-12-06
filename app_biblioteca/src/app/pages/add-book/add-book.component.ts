@@ -24,7 +24,8 @@ export class AddBookComponent implements OnInit {
       genero: ['', Validators.required],
       fecha_publicacion: ['', Validators.required],
       num_paginas: ['', [Validators.required, Validators.min(1)]],
-      descripcion: ['']
+      descripcion: [''],
+      disponibles: ['', [Validators.required, Validators.min(0)]]
     });
   }
 

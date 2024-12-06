@@ -35,7 +35,7 @@ export class CreateUserComponent implements OnInit {
           this.showSuccessMessage = true;
           setTimeout(() => {
             this.router.navigate(['/users']); // Redirigir a la lista de usuarios después de un breve tiempo
-          }, 2000); // Esperar 2 segundos antes de redirigir
+          }, 1000); // Esperar 2 segundos antes de redirigir
         },
         (error) => {
           console.error('Error creando el usuario:', error);

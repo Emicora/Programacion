@@ -3,7 +3,7 @@
       <li><a (click)="navigateHome()" class="nav-link"><i class="bi bi-house-door"></i><br>Home</a></li>
       <li *ngIf="isUser()" routerLink="/homelist" class="nav-link"><i class="bi bi-list"></i><br>Loan List</li>
       
-      <li><a routerLink="/profile" class="nav-link"><i class="bi bi-person"></i><br>Profile</a></li>
+      <li *ngIf="!isPending()" routerLink="/profile" class="nav-link"><i class="bi bi-person"></i><br>Profile</li>
   
       <!-- Botón visible solo para usuarios con rol "user" -->
       <li *ngIf="isAdmin()" routerLink="/loanList" class="nav-link"><i class="bi bi-list"></i><br>Loan List</li>

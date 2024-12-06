@@ -4,11 +4,18 @@ import { inject } from '@angular/core';
 export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const token = localStorage.getItem('token');
-  
+  const userRole = localStorage.getItem('rol'); // Asumiendo que el rol se guarda en el localStorage
+  const requiredRoles: string[] = route.data?.['roles'] || []; // Roles requeridos desde la configuración de la ruta
+
   if (!token) {
-    router.navigateByUrl('home');
+    router.navigateByUrl('/homesinreg');
     return false;
-  } else {
-    return true;
   }
+
+  if (requiredRoles.length > 0 && !requiredRoles.includes(userRole || '')) {
+    router.navigateByUrl('/home');
+    return false;
+  }
+
+  return true;
 };

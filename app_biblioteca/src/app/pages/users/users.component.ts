@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';  // Importar el Router
+import { Router } from '@angular/router';
 
 interface User {
-  id: number;
+  id_usuario: number;
   nombre: string;
   mail: string;
   rol: string;
 }
+
 
 @Component({
   selector: 'app-users',
@@ -16,9 +17,9 @@ interface User {
 })
 export class UsersComponent implements OnInit {
   arrayUsuarios: User[] = [];
-  currentPage: number = 1;  // Página actual
-  totalPages: number = 1;   // Total de páginas
-  perPage: number = 7;     // Usuarios por página
+  currentPage: number = 1;
+  totalPages: number = 1;
+  perPage: number = 7;
 
   // Criterios de búsqueda
   searchCriteria = {
@@ -37,17 +38,27 @@ export class UsersComponent implements OnInit {
   loadUsers(page: number = 1) {
     const { nombre, email, rol } = this.searchCriteria;
 
-    // Llamamos al servicio con los filtros (si están vacíos, el servicio debería ignorarlos)
-    this.userService.getUsers(page, this.perPage, nombre, email, rol).subscribe(response => {
-      this.arrayUsuarios = response.usuarios;
-      this.currentPage = response.page;
-      this.totalPages = response.pages;
-    });
+    // Llamada al servicio con los filtros
+    this.userService.getUsers(page, this.perPage, nombre, email, rol).subscribe(
+      response => {
+        this.arrayUsuarios = response.usuarios.map((user: any) => ({
+          id_usuario: user.id_usuario,
+          nombre: user.nombre,
+          mail: user.mail,
+          rol: user.rol
+        }));
+        this.currentPage = response.page;
+        this.totalPages = response.pages;
+      },
+      error => {
+        console.error('Error al cargar usuarios:', error);
+      }
+    );
   }
 
-  // Buscar usuarios al hacer click en el botón "Buscar"
+  // Ejecutar búsqueda cuando se hace clic en "Buscar"
   onSearchClick() {
-    // Reinicia a la primera página cuando se realiza una búsqueda
+    // Reiniciar la página a la primera cuando se realiza una búsqueda
     this.loadUsers(1);
   }
 
@@ -67,16 +78,32 @@ export class UsersComponent implements OnInit {
 
   // Eliminar usuario
   deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe(() => {
-      // Actualizamos la lista de usuarios después de eliminar uno
-      this.arrayUsuarios = this.arrayUsuarios.filter(user => user.id !== id);
-    }, error => {
-      console.error('Error eliminando el usuario:', error); // Manejo de errores
-    });
+    this.userService.deleteUser(id).subscribe(
+      () => {
+        // Actualizar la lista de usuarios después de eliminar uno
+        this.arrayUsuarios = this.arrayUsuarios.filter(user => user.id_usuario !== id);
+        alert('Usuario eliminado exitosamente.');
+        // Cargar de nuevo los usuarios en caso de que la página esté vacía
+        if (this.arrayUsuarios.length === 0 && this.currentPage > 1) {
+          this.previousPage();
+        }
+      },
+      error => {
+        console.error('Error eliminando el usuario:', error);
+      }
+    );
+  }
+
+  goToEditProfile(user: User) {
+    if (user.id_usuario) {
+      this.router.navigate(['/edit-profile', user.id_usuario]);
+    } else {
+      console.error("ID de usuario no válido:", user);
+    }
   }
 
   // Redirigir al formulario de creación de usuario
   goToCreateUser() {
-    this.router.navigate(['/create-user']);  // Redirigir a la página de creación de usuario
+    this.router.navigate(['/create-user']);
   }
 }

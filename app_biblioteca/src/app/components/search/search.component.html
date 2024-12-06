@@ -1,8 +1,12 @@
 <div class="search-container">
-    <div class="search-fields">
-        <div *ngFor="let field of searchFields">
-            <input [(ngModel)]="searchCriteria[field.name]" [placeholder]="field.placeholder" class="search-bar" />
+    <div class="search-container">
+        <div class="search-fields">
+          <input [(ngModel)]="searchCriteria.titulo" placeholder="Buscar por título" class="search-bar" />
+          <input [(ngModel)]="searchCriteria.editorial" placeholder="Buscar por editorial" class="search-bar" />
+          <input [(ngModel)]="searchCriteria.isbn" placeholder="Buscar por ISBN" class="search-bar" />
         </div>
-    </div>
-    <button (click)="onSearchClick()" class="search-button">Buscar</button>
+        <button (click)="onSearchClick()" class="search-button">Buscar</button>
+      </div>
+ 
+   
 </div>

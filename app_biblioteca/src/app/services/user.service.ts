@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface User {
+  country: string;
   id: number;
   nombre: string;
   mail: string;

@@ -9,7 +9,8 @@ class Libros(db.Model):
     num_paginas = db.Column(db.Integer, nullable=False)
     isbn = db.Column(db.String(50), nullable=False)
     genero = db.Column(db.String(50), nullable=False)
-    id_prestamo = db.Column(db.Integer, db.ForeignKey('prestamos.id_prestamo'), nullable=True)
+    disponibles = db.Column(db.Integer, nullable=False)
+    autor = db.Column(db.String(50), nullable=False)
      
     valoraciones = db.relationship('Valoraciones', back_populates='libro', cascade='all, delete-orphan')
     prestamo = db.relationship('Prestamos', back_populates='libro', uselist=False, single_parent=True)
@@ -24,6 +25,8 @@ class Libros(db.Model):
             'num_paginas': self.num_paginas,
             'isbn': self.isbn,
             'genero': self.genero,
+            'disponibles': self.disponibles,
+            'autor': self.autor,
         }
         return libro_json
 
@@ -36,6 +39,8 @@ class Libros(db.Model):
         num_paginas = libro_json.get('num_paginas')
         isbn = libro_json.get('isbn')
         genero = libro_json.get('genero')
+        disponibles = libro_json.get('disponibles')
+        autor = libro_json.get('autor')
 
         return Libros(id_libro=id_libro, 
                       titulo=titulo, 
@@ -43,4 +48,6 @@ class Libros(db.Model):
                       fecha_publicacion=fecha_publicacion, 
                       num_paginas=num_paginas, 
                       isbn=isbn, 
-                      genero=genero)
+                      genero=genero,
+                      disponibles=disponibles,
+                      autor=autor)

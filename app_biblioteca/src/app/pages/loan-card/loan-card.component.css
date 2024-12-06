@@ -1,0 +1,36 @@
+.loan-details-container {
+    padding: 20px;
+    background-color: #ffe3d8;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .loan-info, .book-details {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loan-info p, .book-details p {
+    margin: 5px 0;
+  }
+  
+  h2, h3 {
+    color: #8b2d2d;
+    text-align: center;
+  }
+  
+  h4 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .book-details {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
