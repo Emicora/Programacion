@@ -36,6 +36,8 @@ import { RouterModule } from '@angular/router';
 import { LoanCardComponent } from './pages/loan-card/loan-card.component';
 import { EditLoanComponent } from './pages/edit-loan/edit-loan.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
+import { AddValoracionComponent } from './pages/add-valoracion/add-valoracion.component';
+import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { EditBookComponent } from './pages/edit-book/edit-book.component';
     LoanListComponent,
     LoanCardComponent,
     EditLoanComponent,
-    EditBookComponent
+    EditBookComponent,
+    AddValoracionComponent,
+    ValoracionesComponent
   ],
   imports: [
     BrowserModule,

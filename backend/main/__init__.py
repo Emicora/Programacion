@@ -51,14 +51,16 @@ def create_app():
 
     api.add_resource(resources.ConfiguracionResource, '/configuracion')
 
-    api.add_resource(resources.ValoracionResource, '/valoracion')
+    api.add_resource(resources.ValoracionesResource, '/valoraciones')
+
+    api.add_resource(resources.ValoracionResource, '/valoracion/<id>')
 
     api.add_resource(resources.NotificacionResource, '/notificacion/<id>')
 
     api.add_resource(resources.NotificacionesResource, '/notificaciones')
 
     api.add_resource(resources.AutorResource, '/autor/<id>')
-
+    
     api.add_resource(resources.AutoresResource, '/autores')
    
     api.add_resource(resources.AsistenciasResource, '/asistencias')

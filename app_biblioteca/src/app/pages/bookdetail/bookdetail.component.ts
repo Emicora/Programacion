@@ -54,4 +54,13 @@ export class BookdetailComponent implements OnInit {
       console.error('Error: No se encontró el ID del libro.');
     }
   }
+
+  viewReviews(): void {
+    if (this.book?.id_libro) {
+      // Navegar a la página de reseñas con el ID del libro
+      this.router.navigate(['/valoraciones', this.book.id_libro]);
+    } else {
+      console.error('Error: No se encontró el ID del libro.');
+    }
+  }
 }

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="header">
+      <h1>Agregar Valoración</h1>
+    </div>
+    <app-go-back></app-go-back>
+  
+    <form class="form-container" (ngSubmit)="onSubmit()" [formGroup]="addValoracionForm">
+      <div>
+        <label for="valoracion">Valoración</label>
+        <select id="valoracion" class="input-field" formControlName="valoracion">
+          <option *ngFor="let option of ratingOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="comentario">Comentario</label>
+        <textarea id="comentario" class="input-field" formControlName="comentario" rows="4" placeholder="Escribe tu comentario"></textarea>
+      </div>
+      <button type="submit" class="confirm-btn" [disabled]="addValoracionForm.invalid">Enviar Valoración</button>
+    </form>
+  </div>
+  

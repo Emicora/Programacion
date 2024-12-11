@@ -54,7 +54,7 @@ export class BookService {
     if (editorial) params.editorial = editorial;
     if (isbn) params.isbn = isbn;
   
-    return this.http.get<any>(`${this.apiUrl}/libros`, { params });
+    return this.http.get<any>(`${this.apiUrl}/libros?sortby_promedio=desc`, { params });
   }
   
 

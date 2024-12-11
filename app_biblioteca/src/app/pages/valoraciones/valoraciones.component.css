@@ -1,0 +1,84 @@
+.valoraciones-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Encabezado de la página */
+.valoraciones-container h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Puntaje promedio */
+.average-rating {
+  font-size: 1.5rem;
+  color: #ff9800;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Lista de reseñas */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tarjetas de reseñas */
+.review-card {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.review-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.review-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.review-card p strong {
+  color: #333;
+}
+
+/* Mensaje cuando no hay reseñas */
+.no-reviews {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* Botón de retroceso */
+app-go-back {
+  margin-bottom: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .valoraciones-container {
+      padding: 15px;
+  }
+
+  .valoraciones-container h1 {
+      font-size: 1.8rem;
+  }
+
+  .review-card {
+      padding: 15px;
+  }
+}

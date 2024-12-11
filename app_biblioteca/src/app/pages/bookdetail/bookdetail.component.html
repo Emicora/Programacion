@@ -12,10 +12,20 @@
     <p><strong>Número de Páginas:</strong> {{ book?.num_paginas }}</p>
     <p><strong>Cantidad Disponibles:</strong> {{ book?.disponibles }}</p>
     
+    <!-- Botón para solicitar préstamo -->
     <button 
         *ngIf="isUser()" 
         [routerLink]="['/loandetail', book?.id_libro]" 
         class="request-loan-button">
         Solicitar Préstamo
     </button>
+
+    <!-- Botón para ver reseñas -->
+    <button 
+        *ngIf="book" 
+        [routerLink]="['/valoracion', book.id_libro]" 
+        class="view-reviews-button">
+        Ver Reseñas
+    </button>
 </div>
+<app-nav></app-nav>
