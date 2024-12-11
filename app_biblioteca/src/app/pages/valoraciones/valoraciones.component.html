@@ -1,0 +1,20 @@
+<app-go-back></app-go-back>
+<div class="valoraciones-container">
+  <h1>Reseñas del Libro</h1>
+
+  <div *ngIf="averageRating !== null" class="average-rating">
+    <h2>Puntaje Promedio: {{ averageRating | number:'1.1-1' }} / 5</h2>
+  </div>
+
+  <div *ngIf="valoraciones && valoraciones.length > 0; else noReviews" class="reviews-list">
+    <div class="review-card" *ngFor="let valoracion of valoraciones">
+      <h3>Usuario ID: {{ valoracion.id_usuario }}</h3>
+      <p><strong>Puntaje:</strong> {{ valoracion.valoracion }} / 5</p>
+      <p><strong>Comentario:</strong> {{ valoracion.comentario }}</p>
+    </div>
+  </div>
+
+  <ng-template #noReviews>
+    <p>No hay reseñas disponibles para este libro.</p>
+  </ng-template>
+</div>

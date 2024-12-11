@@ -6,6 +6,7 @@ from .prestamo import Prestamo as PrestamoResource
 from .prestamo import Prestamos as PrestamosResource
 from .configuracion import Configuracion as ConfiguracionResource
 from .valoracion import Valoracion as ValoracionResource
+from .valoracion import Valoraciones as ValoracionesResource
 from .notificaciones import Notificacion as NotificacionResource
 from .notificaciones import Notificaciones as NotificacionesResource
 from .autor import Autor as AutorResource

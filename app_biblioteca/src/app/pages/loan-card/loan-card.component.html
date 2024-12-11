@@ -19,6 +19,14 @@
     <p><strong>Número de Páginas:</strong> {{ associatedBook.num_paginas }}</p>
     <p><strong>ISBN:</strong> {{ associatedBook.isbn }}</p>
     <p><strong>Género:</strong> {{ associatedBook.genero }}</p>
+
+    <button *ngIf="!hasReviewed" class="add-valoracion-btn" (click)="goToAddValoracion(associatedBook.id_libro)">
+      Añadir Valoración
+    </button>
+    <p *ngIf="hasReviewed" class="already-reviewed">Ya has realizado una reseña para este libro.</p>
+    <button *ngIf="hasReviewed" class="delete-valoracion-btn" (click)="deleteReview()">
+      Eliminar mi reseña
+    </button>
   </div>
 
   <!-- Mensaje si no hay libro asociado -->

@@ -49,7 +49,8 @@ export class HomeadminComponent implements OnInit {
           isbn: book.isbn,
           genero: book.genero,
           num_paginas: book.num_paginas,
-          disponibles: book.disponibles
+          disponibles: book.disponibles,
+          autor: book.autor
         }));
         this.currentPage = response.page;
         this.totalPages = response.pages;

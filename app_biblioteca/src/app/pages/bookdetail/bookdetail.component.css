@@ -80,3 +80,28 @@
     padding: 20px;
     margin-bottom: 20px;
   }
+
+ 
+
+
+button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.view-reviews-button {
+  background-color: #745c47;
+  color: white;
+}
+
+.view-reviews-button:hover {
+  background-color: #665445;
+}
