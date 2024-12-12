@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-create-user',
@@ -11,21 +12,28 @@ import { Router } from '@angular/router';
 export class CreateUserComponent implements OnInit {
   createForm: FormGroup;
   showSuccessMessage: boolean = false;
+  isLibrarian: boolean = false; // Si el usuario actual es un bibliotecario
+
 
   constructor(
     private fb: FormBuilder, 
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
+
   ) {
     this.createForm = this.fb.group({
       nombre: ['', Validators.required],
       mail: ['', [Validators.required, Validators.email]],
-      contrasena: ['', [Validators.required, Validators.minLength(6)]],
+      contrasena: ['', [Validators.required]],
       rol: ['user', Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isLibrarian = this.authService.getRole() === 'librarian';
+
+  }
 
   onSubmit(): void {
     if (this.createForm.valid) {
