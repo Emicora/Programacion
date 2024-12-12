@@ -21,209 +21,148 @@
     box-sizing: border-box;
 }
 
+/* Estilo general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #F9B185;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 60px; /* Espacio para el menú inferior */
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
 }
 
-a {
-    text-decoration: none;
-    color: #AD6666;
-    transition: color 0.3s ease-in-out; /* Agrega una transición suave al color */
+.header {
+  text-align: center;
+  background-color: #8d4b47;
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-a:hover {
-    filter: brightness(70%); /* Aplica un filtro de brillo para oscurecer la imagen */
-    color: rgb(0, 0, 0); /* Cambia el color al pasar el mouse por encima */
+.header h1 {
+  font-size: 24px;
 }
 
-/* Sección de categorías y libros */
-.book-section {
-    flex-grow: 1;
-    padding: 20px;
+/* Contenedor de búsqueda */
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin: 0 auto 20px;
 }
 
-/* Rejilla estilo Netflix */
-.book-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Varias columnas adaptables */
-    gap: 10px;
+.search-bar {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 200px;
 }
 
-.book-item {
-    text-align: center;
+.search-button {
+  background-color: #8d4b47;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #8d4b47;
+}
+
+/* Estilos de la lista de libros */
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.book-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.book-card:hover {
+  transform: scale(1.05);
 }
 
 .book-cover {
-    width: 150px; /* Ancho fijo para las imágenes */
-    height: 220px; /* Alto fijo para las imágenes */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsión */
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 15px;
 }
 
-.book-item p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
+.book-info h2 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
 }
 
-/* Ajuste para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .book-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Ajuste de columnas en pantallas pequeñas */
-    }
-
-    .book-cover {
-        width: 120px;
-        height: 180px;
-    }
+.book-info p {
+  font-size: 14px;
+  color: #666;
 }
 
-@media (max-width: 480px) {
-    .book-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajuste de columnas en pantallas muy pequeñas */
-    }
-
-    .book-cover {
-        width: 100px;
-        height: 150px;
-    }
-}
-
-
-
-
-
-
-  
- 
-  .header {
-    text-align: center;
-    background-color: #8d4b47   ;
-    color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .header h1 {
-    font-size: 24px;
-  }
-  
-  /* Contenedor de búsqueda */
-  .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin: 0 auto 20px;
-  }
-  
-  .search-bar {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 200px;
-  }
-  
-  .search-button {
-    background-color: #8d4b47;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .search-button:hover {
-    background-color: #8d4b47;
-  }
-  
-  /* Estilos de la lista de libros */
-  .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .book-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    padding: 20px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    text-align: center;
-  }
-  
-  .book-card:hover {
-    transform: scale(1.05);
-  }
-  
-  
-  .book-info h2 {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #333;
-  }
-  
-  .book-info p {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  /* Estilos de paginación */
-  .pagination-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-  }
-  
-  .pagination-controls button {
-    background-color: #8d4b47;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .pagination-controls button:hover {
-    background-color: #8d4b47;
-  }
-  
-  .pagination-controls span {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  /* Contenedor general de búsqueda */
-.search-container {
+/* Estilos de paginación */
+.pagination-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d97b73; /* Color de fondo más oscuro */
+  gap: 10px;
+  padding: 20px;
+}
+
+.pagination-controls button {
+  background-color: #8d4b47;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-controls button:hover {
+  background-color: #8d4b47;
+}
+
+.pagination-controls span {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Contenedor general de búsqueda */
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #d97b73;
   padding: 15px;
   border-radius: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -232,10 +171,10 @@ a:hover {
 
 /* Estilos para los inputs de búsqueda */
 .search-fields {
-  justify-content: center;
   display: flex;
-  gap: 5px;  /* Espaciado entre los campos */
-  flex-grow: 1;  /* Para que los campos ocupen todo el ancho disponible */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .search-bar {
@@ -243,15 +182,15 @@ a:hover {
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  width: 100%;  /* Ocupa el 100% del espacio disponible en el contenedor */
+  width: 100%;
+  max-width: 180px;
   transition: border-color 0.3s ease;
 }
 
 .search-bar:focus {
-  border-color: #ffb6b9;  /* Color de borde cuando está en foco */
+  border-color: #ffb6b9;
 }
 
-/* Botón de búsqueda */
 .search-button {
   background-color: #7a5555;
   color: white;
@@ -261,7 +200,6 @@ a:hover {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
-  margin-left: 10px; /* Espaciado a la izquierda del botón */
 }
 
 .search-button:hover {
@@ -271,8 +209,106 @@ a:hover {
 /* Estilos adicionales para el contenedor general */
 .container {
   padding: 20px;
-  background-color: #ffdabd;  /* Fondo de todo el contenedor */
+  background-color: #ffdabd;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Media Queries para hacer el diseño responsive */
+@media (max-width: 768px) {
+  .header h1 {
+      font-size: 20px;
+  }
+
+  .search-container {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .search-fields {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .search-bar {
+      max-width: 100%;
+  }
+
+  .book-list {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+  }
+
+  .book-card {
+      width: 150px;
+      padding: 15px;
+  }
+
+  .book-cover {
+      height: 200px;
+  }
+
+  .pagination-controls {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .pagination-controls span {
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+      font-size: 18px;
+  }
+
+  .search-container {
+      gap: 5px;
+      padding: 10px;
+  }
+
+  .search-fields {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+  }
+
+  .search-bar {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+
+  .search-button {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+  }
+
+  .book-list {
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+  }
+
+  .book-card {
+      width: 120px;
+      padding: 10px;
+  }
+
+  .book-cover {
+      height: 150px;
+  }
+
+  .book-info h2 {
+      font-size: 14px;
+  }
+
+  .book-info p {
+      font-size: 12px;
+  }
+
+  .pagination-controls span {
+      font-size: 0.8rem;
+  }
+}
