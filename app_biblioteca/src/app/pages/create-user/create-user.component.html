@@ -20,13 +20,13 @@
       <div>
         <label for="rol">Rol</label>
         <select id="rol" formControlName="rol">
-          <option value="admin">Admin</option>
+          <option *ngIf="!isLibrarian" value="admin">Admin</option>
           <option value="user">User</option>
           <option value="librarian">Librarian</option>
         </select>
       </div>
       
-      <button type="submit" [disabled]="createForm.invalid">Crear Usuario</button>
+      <button type="submit" >Crear Usuario</button>
   
       <!-- Mensaje de éxito -->
       <div *ngIf="showSuccessMessage" class="success-message">
